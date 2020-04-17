@@ -1,0 +1,11 @@
+<svg id="shipment" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24">
+  <defs>
+    <style>
+      .cls-1 {
+        fill: none;
+      }
+    </style>
+  </defs>
+  <path id="路径_2886" data-name="路径 2886" class="cls-1" d="M0,0H24V24H0Z"/>
+  <path id="路径_2887" data-name="路径 2887" d="M20,8H17V4H3A2.006,2.006,0,0,0,1,6V17H3a3,3,0,0,0,6,0h6a3,3,0,0,0,6,0h2V12Zm-.5,1.5L21.46,12H17V9.5ZM6,18a1,1,0,1,1,1-1A1,1,0,0,1,6,18Zm2.22-3a2.964,2.964,0,0,0-4.44,0H3V6H15v9ZM18,18a1,1,0,1,1,1-1A1,1,0,0,1,18,18Z"/>
+</svg>

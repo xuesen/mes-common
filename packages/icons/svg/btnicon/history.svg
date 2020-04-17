@@ -1,0 +1,11 @@
+<svg id="outline-restore-24px" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24">
+  <defs>
+    <style>
+      .cls-1 {
+        fill: none;
+      }
+    </style>
+  </defs>
+  <path id="路径_2910" data-name="路径 2910" class="cls-1" d="M0,0H24V24H0Z"/>
+  <path id="路径_2911" data-name="路径 2911" d="M13,3a9,9,0,0,0-9,9H1l4,3.99L9,12H6a7.034,7.034,0,1,1,2.06,4.94L6.64,18.36A9,9,0,1,0,13,3ZM12,8v5l4.25,2.52.77-1.28L13.5,12.15V8Z"/>
+</svg>

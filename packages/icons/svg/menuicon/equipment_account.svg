@@ -1,0 +1,11 @@
+<svg id="equipment_account" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24">
+  <defs>
+    <style>
+      .cls-1 {
+        fill: none;
+      }
+    </style>
+  </defs>
+  <path id="路径_2789" data-name="路径 2789" class="cls-1" d="M0,0H24V24H0Z"/>
+  <path id="路径_2790" data-name="路径 2790" d="M19.75,2H6.25A2.069,2.069,0,0,0,4,3.8V18.2A2.069,2.069,0,0,0,6.25,20h13.5A2.069,2.069,0,0,0,22,18.2V3.8A2.069,2.069,0,0,0,19.75,2ZM9.625,3.8h2.25V8.3L10.75,7.625,9.625,8.3ZM19.75,18.2H6.25V3.8H7.375v8.1L10.75,9.875,14.125,11.9V3.8H19.75Z" transform="translate(-1 1)"/>
+</svg>

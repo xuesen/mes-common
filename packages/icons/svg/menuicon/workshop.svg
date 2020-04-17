@@ -1,0 +1,11 @@
+<svg id="workshop" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24">
+  <defs>
+    <style>
+      .cls-1 {
+        fill: none;
+      }
+    </style>
+  </defs>
+  <path id="路径_2845" data-name="路径 2845" class="cls-1" d="M0,0H24V24H0Z"/>
+  <path id="路径_2846" data-name="路径 2846" d="M12.36,6l.4,2H19v6H14.64l-.4-2H6V6h6.36M14,4H4V21H6V14h6.6l.4,2h8V6H14.4Z"/>
+</svg>

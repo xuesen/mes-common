@@ -1,0 +1,16 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="25" height="24" viewBox="0 0 25 24">
+  <defs>
+    <style>
+      .cls-1 {
+        fill: none;
+      }
+    </style>
+  </defs>
+  <g id="迁出" transform="translate(-591 -7)">
+    <g id="outline-description-24px_1_" data-name="outline-description-24px (1)" transform="translate(591 7)">
+      <path id="路径_2555" data-name="路径 2555" class="cls-1" d="M0,0H24V24H0Z"/>
+      <path id="路径_2556" data-name="路径 2556" d="M14,2H6A2.006,2.006,0,0,0,4,4V20a2,2,0,0,0,1.99,2H18a2.006,2.006,0,0,0,2-2V8Zm4,18H6V4h7V9h5Z"/>
+    </g>
+    <path id="路径_2557" data-name="路径 2557" d="M9.01,14H2v2H9.01v3L13,15,9.01,11Z" transform="translate(603 5)"/>
+  </g>
+</svg>

@@ -1,0 +1,11 @@
+<svg id="process" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24">
+  <defs>
+    <style>
+      .cls-1 {
+        fill: none;
+      }
+    </style>
+  </defs>
+  <path id="路径_2853" data-name="路径 2853" class="cls-1" d="M0,0H24V24H0Z"/>
+  <path id="路径_2854" data-name="路径 2854" d="M18,17h2v.5H19v1h1V19H18v1h3V16H18Zm1-9h1V4H18V5h1Zm-1,3h1.8L18,13.1V14h3V13H19.2L21,10.9V10H18ZM2,5H16V7H2ZM2,17H16v2H2Zm0-6H16v2H2Z"/>
+</svg>

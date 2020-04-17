@@ -1,0 +1,11 @@
+<svg id="outline-list_alt-24px" xmlns="http://www.w3.org/2000/svg" width="30" height="30" viewBox="0 0 30 30">
+  <defs>
+    <style>
+      .cls-1 {
+        fill: none;
+      }
+    </style>
+  </defs>
+  <path id="路径_2880" data-name="路径 2880" class="cls-1" d="M0,0H30V30H0Z"/>
+  <path id="路径_2881" data-name="路径 2881" d="M13.667,8.333h8V11h-8Zm0,5.333h8v2.667h-8Zm0,5.333h8v2.667h-8ZM8.333,8.333H11V11H8.333Zm0,5.333H11v2.667H8.333Zm0,5.333H11v2.667H8.333ZM25.8,3H4.2A1.2,1.2,0,0,0,3,4.2V25.8A1.289,1.289,0,0,0,4.2,27H25.8A1.414,1.414,0,0,0,27,25.8V4.2A1.289,1.289,0,0,0,25.8,3ZM24.333,24.333H5.667V5.667H24.333Z"/>
+</svg>

@@ -1,0 +1,25 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24">
+  <defs>
+    <style>
+      .cls-1, .cls-3 {
+        fill: none;
+      }
+
+      .cls-1 {
+        stroke: #707070;
+        opacity: 0;
+      }
+
+      .cls-2 {
+        stroke: none;
+      }
+    </style>
+  </defs>
+  <g id="alarm" transform="translate(-87 -1487)">
+    <path id="outline-notification_important-24px" d="M10.01,21.01a1.99,1.99,0,0,0,3.98,0ZM12,6a5,5,0,0,1,5,5v7H7V11A5,5,0,0,1,12,6Zm0-4.5A1.5,1.5,0,0,0,10.5,3V4.17A6.993,6.993,0,0,0,5,11v6L3,19v1H21V19l-2-2V11a6.993,6.993,0,0,0-5.5-6.83V3A1.5,1.5,0,0,0,12,1.5ZM11,8h2v4H11Zm0,6h2v2H11Z" transform="translate(87 1487.5)"/>
+    <g id="矩形_1179" data-name="矩形 1179" class="cls-1" transform="translate(87 1487)">
+      <rect class="cls-2" width="24" height="24"/>
+      <rect class="cls-3" x="0.5" y="0.5" width="23" height="23"/>
+    </g>
+  </g>
+</svg>

@@ -1,0 +1,13 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24">
+  <defs>
+    <style>
+      .cls-1 {
+        fill: none;
+      }
+    </style>
+  </defs>
+  <g id="symptom_type" transform="translate(-91 -839)">
+    <path id="路径_2954" data-name="路径 2954" d="M-20353.348-22313.414l-1.277-3.363h-6.332l-1.258,3.363h-2.344l5.734-14.586h2.086l5.736,14.586Zm-6.754-5.607h4.641l-2.32-6.191Zm-8.895,3.922a1.121,1.121,0,0,1,1.117-1.117,1.124,1.124,0,0,1,1.127,1.117,1.126,1.126,0,0,1-1.127,1.127A1.123,1.123,0,0,1-20369-22315.1Zm-.006-2.242v-10.1h2.242v10.1Z" transform="translate(20463.998 23171.5)"/>
+    <path id="路径_2617" data-name="路径 2617" class="cls-1" d="M0,0H24V24H0Z" transform="translate(91 839)"/>
+  </g>
+</svg>

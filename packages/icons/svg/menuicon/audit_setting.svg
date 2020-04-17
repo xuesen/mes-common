@@ -1,0 +1,25 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24">
+  <defs>
+    <style>
+      .cls-1 {
+        fill: none;
+        opacity: 0;
+      }
+
+      .cls-2, .cls-3 {
+        stroke: none;
+      }
+
+      .cls-3 {
+        fill: #707070;
+      }
+    </style>
+  </defs>
+  <g id="audit_setting" transform="translate(-44 -196)">
+    <g id="路径_2990" data-name="路径 2990" class="cls-1" transform="translate(44 196)">
+      <path class="cls-2" d="M0,0H24V24H0Z"/>
+      <path class="cls-3" d="M 1 1 L 1 23 L 23 23 L 23 1 L 1 1 M 0 0 L 24 0 L 24 24 L 0 24 L 0 0 Z"/>
+    </g>
+    <path id="account-edit" d="M21.7,13.35l-1,1L18.65,12.3l1-1a.549.549,0,0,1,.77,0l1.28,1.28a.549.549,0,0,1,0,.77M12,18.94l6.06-6.06,2.05,2.05L14.06,21H12V18.94M12,14c-4.42,0-8,1.79-8,4v2h6V18.11l4-4A16.643,16.643,0,0,0,12,14M12,4a4,4,0,1,0,4,4A4,4,0,0,0,12,4Z" transform="translate(43 195)"/>
+  </g>
+</svg>

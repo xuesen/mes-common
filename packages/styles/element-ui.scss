@@ -1,0 +1,411 @@
+.el-button {
+    width:179px;
+    height:56px;
+    border:4px solid rgba(0,212,213,1);
+    background:linear-gradient(180deg,rgba(3,238,229,1) 0%,rgba(5,176,225,1) 100%);
+    color: $color2;
+    font-family: Source Han Sans CN,Helvetica Neue,Helvetica,PingFang SC,Hiragino Sans GB,Microsoft YaHei,Arial,"sans-serif";
+    font-size: $fontSize2;
+    font-weight:500;
+    line-height:20px;
+    opacity:1;
+    border-radius:6px;
+    @media #{$media} and ($feature: $value) {
+      width: 127px;
+      height: 40px;
+      line-height:10px;
+      font-size: $smallfontsize2;
+    }
+    &:focus,&:hover {
+      color:$color4;
+      border:4px solid rgba(7,242,243,1);
+      background:linear-gradient(180deg,rgba(40,251,243,1) 0%,rgba(22,201,252,1) 100%);
+      opacity:1;
+      border-radius:6px;
+    }
+    &.is-disabled, &.is-disabled:focus, &.is-disabled:hover {
+      border:4px solid rgba(0,212,213,1);
+      background:linear-gradient(180deg,rgba(3,238,229,1) 0%,rgba(5,176,225,1) 100%);
+      color:rgba(#119CB2,1);
+      border-radius:6px;
+    }
+    margin-left: 12px;
+  }
+  .el-tabs {
+    .el-tabs__header {
+      margin: 0px;
+      .el-tabs__nav{
+        background-color: #fff;
+      }
+    }
+    .el-tabs__item.is-active,.el-tabs__item:hover {
+      background-color: #3fd1db ;
+      color: #fff;
+    }
+    .el-tabs__nav-scroll {
+      background-color: $backcolor4;
+    }
+  }
+  .el-dropdown-menu__item {
+    height: 48px;
+    line-height: 48px;
+    font-size:16px;
+    font-weight:500;
+    color:$color3;
+    &:hover,&:focus {
+      background-color: $backcolor1;
+      color: $color3;
+    }
+  }
+  .el-select-dropdown__item {
+      font-size:$smallfontsize1;
+      &.selected {
+        background-color: #3fd1db !important;
+        color: #fff !important;
+      }
+      &:hover, &:focus {
+          background-color: #3fd1db !important;
+          color: #fff !important;
+      }
+      @media #{$media} and ($feature: $value) {
+        font-size:$smallfontsize2;
+      }
+  }
+  .el-input input,.el-input input {
+    border: none;
+    background-color: transparent;
+    border-bottom: 1px solid #999;
+    border-radius: 0;
+    height: 50px;
+    font-size: 22px;
+    font-weight: 500;
+    line-height: 23px;
+    padding: 0 3px;
+    width: 100%;
+    @media #{$media} and ($feature: $value) {
+      font-size:$smallfontsize2;
+      height: 30px;
+      line-height: 20px;
+    }
+    &::-webkit-input-placeholder {
+      height:75px;
+      font-size:22px;
+      font-weight:500;
+      line-height:75px;
+      color:rgba(45,48,55,1);
+      opacity:1;
+      @media #{$media} and ($feature: $value) {
+        height:50px;
+        line-height:50px;
+        font-size:$smallfontsize2;
+        height: 30px;
+        line-height: 20px;
+      }
+    }
+  }
+  .el-radio-group {
+    .el-radio__label {
+      font-size:$fontSize2;
+      font-weight:500;
+      line-height:50px;
+      color: $tableHeaderColor;
+      opacity:1;
+      @media #{$media} and ($feature: $value) {
+        height:16px;
+        font-size:$smallfontsize2;
+        line-height:50px;
+      }
+    }
+    .el-radio__inner {
+      width:21px;
+      height:21px;
+      background: $color1;
+      border:1px solid $tableHeaderColor;
+      border-radius:50%;
+      opacity:1;
+      @media #{$media} and ($feature: $value) {
+        width:$smallfontsize2;
+        height:$smallfontsize2 ;
+      }
+    }
+  }
+  .el-container {
+    padding: 12px;
+    @media #{$media} and ($feature: $value) {
+      padding: 8px;
+    }
+    .el-header {
+      padding: 0px;
+    }
+    .el-main {
+      width: 100%;
+      height: 100%;
+      padding: 12px 0 0 0;
+      @media #{$media} and ($feature: $value) {
+        padding: 8px 0 0 0;
+      }
+    }
+  }
+  .el-row {
+    &+.el-row {
+      padding-top: 12px;
+      @media #{$media} and ($feature: $value) {
+        padding-top: 9px;
+      }
+    }
+    .el-col {
+      &+.el-col {
+        padding-left: 12px;
+        @media #{$media} and ($feature: $value) {
+          padding-left: 9px;
+        }
+      }
+    }
+  }
+  .el-card {
+    height: 100%;
+    border: 0px;
+    box-shadow:0px 3px 6px rgba(0,0,0,0.09);
+    opacity:1;
+    border-radius:6px;
+    background-color: transparent;
+    padding: 0px;
+    &.nopadding {
+      padding: 0px;
+      .el-card__body {
+        padding: 0px;
+        height: 100%;
+      }
+    }
+    .el-card__body {
+      background-color: transparent;
+      height: 100%;
+      padding: 0px;
+    }
+    .el-row {
+      &+.el-row {
+        padding-top: 0px;
+      }
+    }
+    .el-table {
+      width: 100%;
+      height: 100%;
+    }
+  }
+  
+  .el-table {
+    color: $color3;
+    .current-row, .current-row td {
+      background-color: rgba(63,209,219,1) !important;
+      color: #fff;
+    }
+    th, td {
+      padding: 0px;
+      height: 48px;
+      line-height:48px;
+      font-size: 18px;
+      @media #{$media} and ($feature: $value) {
+        height: 35px;
+        line-height: 40px;
+        font-size: 14px;
+      }
+      border-bottom: none;
+    }
+    th {
+      background-color: $tableHeaderBackColor;
+    }
+    th > .cell {
+      color: $tableHeaderColor;
+      font-weight:700;
+      line-height:29px;
+    }
+    .el-table__header {
+      background-color: $tableHeaderBackColor;
+      border-radius: 4px;
+      color: $tableHeaderColor;
+      font-weight:500;
+      font-size: $fontSize2
+    }
+    &.el-table--striped {
+      .el-table__body {
+        tr.el-table__row {
+          background-color: $backcolorWhite;
+          &.el-table__row--striped {
+            background-color: rgba(6,154,219,0.04);
+            td {
+              background-color: rgba(6,154,219,0.04);
+            }
+          }
+        }
+      }
+    }
+    &.el-table--border {
+      td, th {
+        border-right: 1px solid rgba(6,154,219,0.1);
+      }
+    }
+  }
+  
+  .el-table__expanded-cell {
+    background-color: transparent;
+  }
+  .el-dialog {
+    background-color: rgba(244,247,249,1);
+    opacity:1;
+    .el-form {
+      .el-form-item {
+        margin-bottom: 0px;
+        .el-form-item__label{
+          height:50px;
+          font-size:22px;
+          font-weight:500;
+          line-height:50px;
+          color:rgba(45,48,55,1);
+          opacity:1;
+          @media #{$media} and ($feature: $value) {
+            height:40px;
+            line-height: 40px;
+            font-size: $smallfontsize2;
+          }
+        }
+      }
+    }
+    .el-radio-group {
+      .el-radio__label {
+        height:22px;
+        font-size:22px;
+        font-weight:500;
+        line-height:37px;
+        color:rgba(45,48,55,1);
+        opacity:1;
+      }
+      .el-radio__inner {
+        width:21px;
+        height:21px;
+        border:2px solid rgba(7,78,89,1);
+        border-radius:50%;
+        opacity:1;
+      }
+    }
+    .el-dialog__header {
+      padding: 0px;
+      margin-top: 24px;
+      padding-left: 25px;
+      height: 60px;
+      border-bottom: 6px solid rgba(255,255,255,1);
+      @media #{$media} and ($feature: $value) {
+        margin-top: 10px;
+        padding-left: 15px;
+        height: 56px;
+      }
+    }
+    .el-dialog__headerbtn .el-dialog__close {
+      width:30px;
+      height:30px;
+      font-size: 22px;
+      color:rgba(0,0,0,1);
+      opacity:1;
+      background-color: transparent;
+      box-shadow:0px 8px 12px transparent;
+      @media #{$media} and ($feature: $value) {
+        font-size: $smallfontsize2;
+      }
+    }
+    .el-dialog__body {
+      padding: 18px 41px 0px 38px;
+      .el-row+.el-row {
+        padding-bottom: 10px;
+        padding-top: 0px;
+      }
+    }
+    .el-dialog__title {
+      width:88px;
+      height:22px;
+      font-size:22px;
+      font-weight:bold;
+      line-height:56px;
+      color:rgba(45,48,55,1);
+      opacity:1;
+      @media #{$media} and ($feature: $value) {
+        font-size: 20px;
+      }
+    }
+    .el-dialog__footer {
+      text-align: center;
+      padding: 0px;
+      padding-top: 17px;
+      padding-bottom: 15px;
+    } 
+    .el-button {
+      width:178px;
+      height: 50px;
+      background:rgba(230,235,238,1);
+      border:2px solid rgba(102,102,102,1);
+      opacity:1;
+      border-radius:6px;
+      @media #{$media} and ($feature: $value) {
+        width:83px;
+        height: 36px;
+        line-height: 10px;
+        font-size: $smallfontsize2;
+      }
+      span {
+        width:95px;
+        height:22px;
+        font-size:22px;
+        font-weight:500;
+        text-align: center;
+        vertical-align: middle;
+        color:rgba(45,48,55,1);
+        letter-spacing:10px;
+        opacity:1;
+        @media #{$media} and ($feature: $value) {
+          width:80px;
+          height:20px;
+          letter-spacing:5px;
+          text-align: center;
+          vertical-align: middle;
+          font-size: $smallfontsize2;
+        }
+      }
+    }
+  }
+  .el-radio__input.is-checked .el-radio__inner {
+    border: 2px solid #3FD1DB;
+    background: #FFF;
+  }
+  .el-radio__inner::after {
+  width: 6px;
+  height: 6px;
+  background-color: #3FD1DB;
+  }
+  .el-checkbox__input.is-checked .el-checkbox__inner, .el-checkbox__input.is-indeterminate .el-checkbox__inner {
+    background-color: #FFFFFF;
+    border: 2px solid #3FD1DB;
+  
+  }
+  .el-checkbox__inner::after {
+  -webkit-box-sizing: content-box;
+  box-sizing: content-box;
+  content: "";
+  border: 2px solid #3FD1DB;
+  border-left: 0;
+  border-top: 0;
+  height: 7px;
+  left: 3px;
+  position: absolute;
+  top: 0px;
+  -webkit-transform: rotate(45deg) scaleY(0);
+  transform: rotate(45deg) scaleY(0);
+  width: 3px;
+  -webkit-transition: -webkit-transform .15s ease-in .05s;
+  transition: -webkit-transform .15s ease-in .05s;
+  transition: transform .15s ease-in .05s;
+  transition: transform .15s ease-in .05s, -webkit-transform .15s ease-in .05s;
+  transition: transform .15s ease-in .05s,-webkit-transform .15s ease-in .05s;
+  -webkit-transform-origin: center;
+  transform-origin: center;
+  }
+  .el-radio__input.is-checked+.el-radio__label {
+    color: #313446;
+  }

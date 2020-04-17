@@ -1,0 +1,25 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24">
+  <defs>
+    <style>
+      .cls-1 {
+        fill: none;
+        opacity: 0;
+      }
+
+      .cls-2, .cls-3 {
+        stroke: none;
+      }
+
+      .cls-3 {
+        fill: #707070;
+      }
+    </style>
+  </defs>
+  <g id="组_2419" data-name="组 2419" transform="translate(-44 -196)">
+    <path id="checkbox-marked-circle-outline" d="M20,12a8.006,8.006,0,1,1-5.8-7.69l1.57-1.57A9.822,9.822,0,0,0,12,2,10,10,0,1,0,22,12M7.91,10.08,6.5,11.5,11,16,21,6,19.59,4.58,11,13.17Z" transform="translate(44 196)"/>
+    <g id="路径_2990" data-name="路径 2990" class="cls-1" transform="translate(44 196)">
+      <path class="cls-2" d="M0,0H24V24H0Z"/>
+      <path class="cls-3" d="M 1 1 L 1 23 L 23 23 L 23 1 L 1 1 M 0 0 L 24 0 L 24 24 L 0 24 L 0 0 Z"/>
+    </g>
+  </g>
+</svg>

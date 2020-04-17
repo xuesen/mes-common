@@ -1,0 +1,11 @@
+<svg id="common_file_management" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24">
+  <defs>
+    <style>
+      .cls-1 {
+        fill: none;
+      }
+    </style>
+  </defs>
+  <path id="路径_2847" data-name="路径 2847" class="cls-1" d="M0,0H24V24H0Z"/>
+  <path id="路径_2848" data-name="路径 2848" d="M9.17,6l2,2H20V18H4V6H9.17M10,4H4A2,2,0,0,0,2.01,6L2,18a2.006,2.006,0,0,0,2,2H20a2.006,2.006,0,0,0,2-2V8a2.006,2.006,0,0,0-2-2H12Z"/>
+</svg>

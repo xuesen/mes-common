@@ -1,0 +1,11 @@
+<svg id="outline-exit_to_app-24px" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24">
+  <defs>
+    <style>
+      .cls-1 {
+        fill: none;
+      }
+    </style>
+  </defs>
+  <path id="路径_2942" data-name="路径 2942" class="cls-1" d="M24,0H0V24H24Z"/>
+  <path id="路径_2943" data-name="路径 2943" d="M13.41,15.59,15,17l6-5L15,7,13.41,8.41,16.83,11H7.5v2h9.33ZM4.5,3h14a2,2,0,0,1,2,2V9h-2V5H4.5V19h14V15h2v4a2,2,0,0,1-2,2H4.5a2.006,2.006,0,0,1-2-2V5A2.006,2.006,0,0,1,4.5,3Z" transform="translate(0.5)"/>
+</svg>

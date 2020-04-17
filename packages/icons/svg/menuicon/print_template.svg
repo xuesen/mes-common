@@ -1,0 +1,11 @@
+<svg id="print_template" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24">
+  <defs>
+    <style>
+      .cls-1 {
+        fill: none;
+      }
+    </style>
+  </defs>
+  <path id="路径_2791" data-name="路径 2791" class="cls-1" d="M0,0H24V24H0Z"/>
+  <path id="printer" d="M18,3H6V7H18m1,5a1,1,0,1,1,1-1,1,1,0,0,1-1,1m-3,7H8V14h8m3-6H5a3,3,0,0,0-3,3v6H6v4H18V17h4V11A3,3,0,0,0,19,8Z"/>
+</svg>

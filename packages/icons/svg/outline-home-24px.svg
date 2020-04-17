@@ -1,0 +1,17 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24">
+  <defs>
+    <style>
+      .cls-1 {
+        opacity: 0.54;
+      }
+
+      .cls-2 {
+        fill: none;
+      }
+    </style>
+  </defs>
+  <g id="outline-home-24px" class="cls-1">
+    <path id="路径_2482" data-name="路径 2482" class="cls-2" d="M0,0H24V24H0Z"/>
+    <path id="路径_2483" data-name="路径 2483" d="M12,5.69l5,4.5V18H15V12H9v6H7V10.19l5-4.5M12,3,2,12H5v8h6V14h2v6h6V12h3Z"/>
+  </g>
+</svg>

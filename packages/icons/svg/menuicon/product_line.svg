@@ -1,0 +1,11 @@
+<svg id="product_line" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24">
+  <defs>
+    <style>
+      .cls-1 {
+        fill: none;
+      }
+    </style>
+  </defs>
+  <path id="路径_2781" data-name="路径 2781" class="cls-1" d="M0,0H24V24H0Z"/>
+  <path id="路径_2782" data-name="路径 2782" d="M3,17H21v2H3Zm16-5v1H5V12H19m2-2H3v5H21ZM3,6H21V8H3Z"/>
+</svg>

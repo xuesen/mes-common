@@ -1,0 +1,13 @@
+<svg id="symptom" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24">
+  <defs>
+    <style>
+      .cls-1 {
+        fill: none;
+      }
+    </style>
+  </defs>
+  <path id="路径_2907" data-name="路径 2907" class="cls-1" d="M0,0H24V24H0Z"/>
+  <path id="路径_2908" data-name="路径 2908" d="M16.437,3H8.563L3,8.563v7.874L8.563,22h7.874L22,16.437V8.563Zm3.452,12.561-4.328,4.328H9.439L5.111,15.561V9.439L9.439,5.111h6.122l4.328,4.328v6.122Z"/>
+  <circle id="椭圆_29" data-name="椭圆 29" cx="1" cy="1" r="1" transform="translate(11.5 15)"/>
+  <path id="路径_2909" data-name="路径 2909" d="M11,7h2v7H11Z" transform="translate(0.5)"/>
+</svg>

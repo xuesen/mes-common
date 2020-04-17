@@ -1,0 +1,11 @@
+<svg id="equipment_catagory" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24">
+  <defs>
+    <style>
+      .cls-1 {
+        fill: none;
+      }
+    </style>
+  </defs>
+  <path id="路径_2817" data-name="路径 2817" class="cls-1" d="M0,0H24V24H0Z"/>
+  <path id="路径_2818" data-name="路径 2818" d="M3.076,6H16.919V4H3.076A1.821,1.821,0,0,0,1.538,6V17H0v3H10.767V17H3.076ZM17.688,8H13.074A.91.91,0,0,0,12.3,9V19a.91.91,0,0,0,.769,1h4.614a.91.91,0,0,0,.769-1V9A.91.91,0,0,0,17.688,8Zm-.769,9H13.843V10h3.076Z" transform="translate(2.543)"/>
+</svg>

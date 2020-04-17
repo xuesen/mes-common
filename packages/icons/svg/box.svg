@@ -1,0 +1,40 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="232.001" height="83.667" viewBox="0 0 232.001 83.667">
+  <defs>
+    <style>
+      .cls-1 {
+        fill: #e4e4e4;
+        stroke: #8f8e8e;
+      }
+
+      .cls-1, .cls-2, .cls-3 {
+        stroke-width: 2px;
+      }
+
+      .cls-2 {
+        fill: #f5f5f5;
+        stroke: #aeacac;
+      }
+
+      .cls-3 {
+        fill: #dcdcdc;
+        stroke: #959090;
+      }
+
+      .cls-4 {
+        stroke: none;
+      }
+
+      .cls-5 {
+        fill: none;
+      }
+    </style>
+  </defs>
+  <g id="盒" transform="translate(-1486 -381.333)">
+    <path id="路径_2993" data-name="路径 2993" class="cls-1" d="M14781.335-6050.667l-58.667,37.333h186.667l38.666-37.333Z" transform="translate(-13233 6433)"/>
+    <g id="矩形_1210" data-name="矩形 1210" class="cls-2" transform="translate(1486 422)">
+      <rect class="cls-4" width="190" height="43"/>
+      <rect class="cls-5" x="1" y="1" width="188" height="41"/>
+    </g>
+    <path id="路径_2994" data-name="路径 2994" class="cls-3" d="M14948-6050.667V-6018l-39.557,45.283v-40.148Z" transform="translate(-13231 6435)"/>
+  </g>
+</svg>

@@ -1,0 +1,10 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="21.845" height="21.844" viewBox="0 0 21.845 21.844">
+  <defs>
+    <style>
+      .cls-1 {
+        fill: #00fdfe;
+      }
+    </style>
+  </defs>
+  <path id="border-color" class="cls-1" d="M25.469,5.191a1.279,1.279,0,0,0,0-1.812L22.463.373a1.279,1.279,0,0,0-1.812,0L18.133,2.892l4.818,4.818M21.666,8.994,16.848,4.176,4,17.024v4.818H8.818Z" transform="translate(-4 0.002)"/>
+</svg>

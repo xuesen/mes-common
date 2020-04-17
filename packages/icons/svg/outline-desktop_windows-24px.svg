@@ -1,0 +1,17 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="19.674" height="24" viewBox="0 0 19.674 24">
+  <defs>
+    <style>
+      .cls-1 {
+        opacity: 0.54;
+      }
+
+      .cls-2 {
+        fill: none;
+      }
+    </style>
+  </defs>
+  <g id="outline-desktop_windows-24px" class="cls-1">
+    <path id="路径_2478" data-name="路径 2478" class="cls-2" d="M0,0H19.674V24H0Z"/>
+    <path id="路径_2479" data-name="路径 2479" d="M17.067,2H2.607A1.842,1.842,0,0,0,1,4V16a1.842,1.842,0,0,0,1.607,2H8.23v2H6.623v2H13.05V20H11.443V18h5.623a1.842,1.842,0,0,0,1.607-2V4A1.842,1.842,0,0,0,17.067,2Zm0,14H2.607V4h14.46Z"/>
+  </g>
+</svg>

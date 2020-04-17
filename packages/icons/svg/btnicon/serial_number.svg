@@ -1,0 +1,11 @@
+<svg id="outline-filter_1-24px" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24">
+  <defs>
+    <style>
+      .cls-1 {
+        fill: none;
+      }
+    </style>
+  </defs>
+  <path id="路径_2841" data-name="路径 2841" class="cls-1" d="M0,0H24V24H0Z"/>
+  <path id="路径_2842" data-name="路径 2842" d="M3,5H1V21a2.006,2.006,0,0,0,2,2H19V21H3ZM14,15h2V5H12V7h2ZM21,1H7A2.006,2.006,0,0,0,5,3V17a2.006,2.006,0,0,0,2,2H21a2.006,2.006,0,0,0,2-2V3A2.006,2.006,0,0,0,21,1Zm0,16H7V3H21Z"/>
+</svg>

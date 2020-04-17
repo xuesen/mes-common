@@ -1,0 +1,13 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24">
+  <defs>
+    <style>
+      .cls-1 {
+        fill: none;
+      }
+    </style>
+  </defs>
+  <g id="esop_mapping" transform="translate(-59 -2608)">
+    <path id="路径_2710" data-name="路径 2710" d="M-12762.366-19997h-2.271v-4h6.818v-12h-6.818v-2h6.818a1.918,1.918,0,0,1,1.818,2v12a1.918,1.918,0,0,1-1.818,2h-4.548v2Zm-5,0h-2.274v-2h-4.544a1.918,1.918,0,0,1-1.818-2v-12a1.918,1.918,0,0,1,1.818-2h6.818v2h-6.818v12h6.818v4Zm7.724-7h-5v-2h5v2Zm-7.724,0h-5v-2h5v2Zm7.724-4h-5v-2h5v2Zm-7.724,0h-5v-2h5v2Z" transform="translate(12837 22626)"/>
+    <path id="路径_2494" data-name="路径 2494" class="cls-1" d="M0,0H24V24H0Z" transform="translate(59 2608)"/>
+  </g>
+</svg>

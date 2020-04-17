@@ -1,0 +1,11 @@
+<svg id="barcode_rule" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24">
+  <defs>
+    <style>
+      .cls-1 {
+        fill: none;
+      }
+    </style>
+  </defs>
+  <path id="路径_2869" data-name="路径 2869" class="cls-1" d="M0,0H24V24H0ZM0,0H24V24H0Z"/>
+  <path id="路径_2870" data-name="路径 2870" d="M20,7V17H4V7H20m0-2H4A2,2,0,0,0,2.01,7L2,17a2.006,2.006,0,0,0,2,2H20a2.006,2.006,0,0,0,2-2V7A2.006,2.006,0,0,0,20,5ZM11,8h2v2H11Zm0,3h2v2H11ZM8,8h2v2H8Zm0,3h2v2H8ZM5,11H7v2H5ZM5,8H7v2H5Zm3,6h8v2H8Zm6-3h2v2H14Zm0-3h2v2H14Zm3,3h2v2H17Zm0-3h2v2H17Z"/>
+</svg>

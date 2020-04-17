@@ -1,0 +1,11 @@
+<svg id="workfolw" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24">
+  <defs>
+    <style>
+      .cls-1 {
+        fill: none;
+      }
+    </style>
+  </defs>
+  <path id="路径_2926" data-name="路径 2926" class="cls-1" d="M0,0H24V24H0Z"/>
+  <path id="路径_2927" data-name="路径 2927" d="M18,4,14,8h3v7a2,2,0,0,1-4,0V8A4,4,0,0,0,5,8v7H2l4,4,4-4H7V8a2,2,0,0,1,4,0v7a4,4,0,0,0,8,0V8h3Z"/>
+</svg>
