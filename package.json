@@ -1,7 +1,7 @@
 {
   "name": "mes-maintain-element",
-  "version": "1.0.6",
-  "description": "mes相关数据维护项目的公用组件",
+  "version": "1.0.8",
+  "description": "mes相关维护项目公用组件",
   "author": "itc070024",
   "scripts": {
     "serve": "vue-cli-service serve --mode development",
