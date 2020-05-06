@@ -1,12 +1,12 @@
 <template>
     <div>
-       <el-dialog v-dialogDrag :title='$t("role.addUser")' class="selectUser viewinfor dialogwidth2" :visible="visible"
+       <ii-dialog v-dialogDrag :title='$t("role.addUser")' class="selectUser viewinfor dialogwidth2" :visible="visible"
             :modal="true" top="0" :close-on-click-modal="false"
             :show-close='true' @open= 'handleOpen' @close= 'handleClose'>
           <div  class="filters">
           <el-form ref="department" :model="form" label-width="100px">
-              <el-row>
-                  <el-col :span="18">
+              <ii-row>
+                  <ii-col :span="18">
                     <el-form-item :label='$t("role.company")'>
                         <el-select v-model="form.company" style="width:100%">
                             <el-option
@@ -17,10 +17,10 @@
                             </el-option>
                         </el-select>
                     </el-form-item>
-                  </el-col>
-              </el-row>
-              <el-row>
-                  <el-col :span="18">
+                  </ii-col>
+              </ii-row>
+              <ii-row>
+                  <ii-col :span="18">
                     <el-form-item :label='$t("role.department")'>
                         <el-select v-model="form.department" style="width:100%">
                             <el-option
@@ -31,75 +31,75 @@
                             </el-option>
                         </el-select>
                     </el-form-item>
-                  </el-col>
-              </el-row>
-              <el-row>
-                  <el-col :span="18">
+                  </ii-col>
+              </ii-row>
+              <ii-row>
+                  <ii-col :span="18">
                     <el-form-item :label='$t("role.search")'>
-                    <el-input v-model="form.search"></el-input>
+                    <ii-input v-model="form.search"></ii-input>
                     </el-form-item>
-                  </el-col>
-                  <el-col :span="6"  :offset = "0" style="text-align: right;padding-right: 20px;">
-                    <el-button type="primary" @click="fetchUserData">{{$t("button.search")}}</el-button>
-                </el-col>
-              </el-row>
+                  </ii-col>
+                  <ii-col :span="6"  :offset = "0" style="text-align: right;padding-right: 20px;">
+                    <ii-button type="primary" @click="fetchUserData">{{$t("button.search")}}</ii-button>
+                </ii-col>
+              </ii-row>
           </el-form>
           </div>
           <div class="borderStype"></div>
-          <el-row class="rowheight">
-            <el-col :span="11">
-                <el-table :data="users" ref="table" height="200" stripe border style="width: 100%"
+          <ii-row class="rowheight">
+            <ii-col :span="11">
+                <ii-table :data="users" ref="table" height="200" stripe border style="width: 100%"
                     v-loading.body="loading"
                     :highlight-current-row= "true"
                     @selection-change="handleSelectionChange">
-                    <el-table-column width= "40" type="selection" class-name="select_box">
-                    </el-table-column>
-                    <el-table-column prop="name" :label='$t("role.name")' min-width= "100" :show-overflow-tooltip="true">
-                    </el-table-column>
-                    <el-table-column prop="code" :label='$t("role.login")' min-width= "100" :show-overflow-tooltip="true">
-                    </el-table-column>
-                </el-table>
-            </el-col>
-            <el-col :span="2">
+                    <ii-table-column width= "40" type="selection" class-name="select_box">
+                    </ii-table-column>
+                    <ii-table-column prop="name" :label='$t("role.name")' min-width= "100" :show-overflow-tooltip="true">
+                    </ii-table-column>
+                    <ii-table-column prop="code" :label='$t("role.login")' min-width= "100" :show-overflow-tooltip="true">
+                    </ii-table-column>
+                </ii-table>
+            </ii-col>
+            <ii-col :span="2">
                 <div style='width:30px;text-align: center; margin: auto;line-height:200px'>
-                  <el-button-group>
-                    <el-tooltip class="item buttonspace" effect="dark" :content='$t("button.right")' placement="top-start">
-                      <el-button @click='selectUser'><svg-icon :name="'btnicon/right_shift'" width="24" height="24"/></el-button>
-                    </el-tooltip>
-                    <el-tooltip class="item" effect="dark" :content='$t("button.left")' placement="top-start">
-                      <el-button @click='unSelectUser'><svg-icon :name="'btnicon/left_shift'" width="24" height="24"/></el-button>
-                    </el-tooltip>
-                  </el-button-group>
+                  <ii-button-group>
+                    <ii-tooltip class="item buttonspace" effect="dark" :content='$t("button.right")' placement="top-start">
+                      <ii-button @click='selectUser'><svg-icon :name="'btnicon/right_shift'" width="24" height="24"/></ii-button>
+                    </ii-tooltip>
+                    <ii-tooltip class="item" effect="dark" :content='$t("button.left")' placement="top-start">
+                      <ii-button @click='unSelectUser'><svg-icon :name="'btnicon/left_shift'" width="24" height="24"/></ii-button>
+                    </ii-tooltip>
+                  </ii-button-group>
                 </div>
-            </el-col>
-            <el-col :span="11">
-                <el-table :data="selectedUsers" ref="selectedTable" height="200" stripe border style="width: 100%"
+            </ii-col>
+            <ii-col :span="11">
+                <ii-table :data="selectedUsers" ref="selectedTable" height="200" stripe border style="width: 100%"
                     :highlight-current-row= "true"
                     @selection-change="handleUnSelectionChange">
-                    <el-table-column width= "40" type="selection" class-name="select_box">
-                    </el-table-column>
-                    <el-table-column prop="name" :label='$t("role.name")' min-width= "100" :show-overflow-tooltip="true">
-                    </el-table-column>
-                    <el-table-column prop="code" :label='$t("role.login")' min-width= "100" :show-overflow-tooltip="true">
-                    </el-table-column>
-                </el-table>
-            </el-col>
-          </el-row>
+                    <ii-table-column width= "40" type="selection" class-name="select_box">
+                    </ii-table-column>
+                    <ii-table-column prop="name" :label='$t("role.name")' min-width= "100" :show-overflow-tooltip="true">
+                    </ii-table-column>
+                    <ii-table-column prop="code" :label='$t("role.login")' min-width= "100" :show-overflow-tooltip="true">
+                    </ii-table-column>
+                </ii-table>
+            </ii-col>
+          </ii-row>
           <div slot="footer" class="dialog-footer">
-            <el-button type="text" @click="handleCancel">{{$t('button.cancel')}}</el-button>
-            <el-button type="primary" @click="handleSave">{{$t('button.ok')}}</el-button>
+            <ii-button type="text" @click="handleCancel">{{$t('button.cancel')}}</ii-button>
+            <ii-button type="primary" @click="handleSave">{{$t('button.ok')}}</ii-button>
           </div>
-      </el-dialog>
+      </ii-dialog>
   </div>
 </template>
 <style lang="scss">
 @import '../../styles/variables.scss';
-  .el-button + .el-button
+  .ii-button + .ii-button
   {
     margin-left: 0px;
   }
 
-  .selectUser .el-dialog--customer
+  .selectUser .ii-dialog--customer
   {
     width: 70%
   }

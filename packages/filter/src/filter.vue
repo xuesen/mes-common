@@ -1,9 +1,9 @@
 <template>
-  <el-dialog class="genery" :modal="false" :visible.sync="show" @closed="closediag()" :close-on-click-modal="false" :width="width" :title="$t(tableDefine.i18n + '.' + 'title')">
+  <ii-dialog class="genery" :modal="false" :visible.sync="show" @closed="closediag()" :close-on-click-modal="false" :width="width" :title="$t(tableDefine.i18n + '.' + 'title')">
     <div class="filters">
       <el-form ref='queryForm'>
-          <el-row style="margin-top:5px;">
-            <el-col :span="8">
+          <ii-row style="margin-top:5px;">
+            <ii-col :span="8">
               <el-form-item>
                 <el-select v-model="queryForm.condition">
                   <el-option
@@ -14,19 +14,19 @@
                   </el-option>
                 </el-select>
               </el-form-item>
-            </el-col>
-            <el-col :span="8" style="padding-left: 16px;">
+            </ii-col>
+            <ii-col :span="8" style="padding-left: 16px;">
               <el-form-item>
-                <el-input clearable autosize v-model="queryForm.value" @keyup.enter.native="filterdata"></el-input>
+                <ii-input clearable autosize v-model="queryForm.value" @keyup.enter.native="filterdata"></ii-input>
               </el-form-item>
-            </el-col>
-            <el-col :span="8" class="filter_button">
-              <el-button type="primary" @click="filterdata" >{{$t("button.search")}}</el-button>
-            </el-col>
-          </el-row>
+            </ii-col>
+            <ii-col :span="8" class="filter_button">
+              <ii-button type="primary" @click="filterdata" >{{$t("button.search")}}</ii-button>
+            </ii-col>
+          </ii-row>
       </el-form>
     </div>
-    <el-table
+    <ii-table
       ref="Table"
       :data="tableData"
       @row-click="rowclick"
@@ -37,7 +37,7 @@
       v-loading="loading"
       :fit="true"
       style="width: 100%">
-      <el-table-column v-for="column in tableDefine.columnset"
+      <ii-table-column v-for="column in tableDefine.columnset"
         :key="'tableColumn' + column.columnname"
         :label="getColumnlable(column.columnname)"
         :prop="column.columnname"
@@ -48,18 +48,18 @@
         <template slot-scope="scope">
             <span>{{  column.formater ? column.formater(scope.row) : getColumnValue(column.columnname, scope.row)}}</span>
         </template>
-      </el-table-column>
-      </el-table>
+      </ii-table-column>
+      </ii-table>
     <span slot="footer" class="dialog-footer">
-      <el-button type="text" @click="handleSave()">{{$t('button.confirm')}}</el-button>
+      <ii-button type="text" @click="handleSave()">{{$t('button.confirm')}}</ii-button>
     </span>
-  </el-dialog>
+  </ii-dialog>
 </template>
 
 <style lang="scss" scoped>
 @import '../../styles/variables.scss';
 .genery {
-  /deep/ .el-dialog .el-dialog__title{
+  /deep/ .ii-dialog .ii-dialog__title{
     font-size:$fontSize2;
     @media #{$media} and ($feature: $value){
       font-size: $smallfontsize1;
@@ -78,7 +78,7 @@
     line-height: 40px;
   }
 }
-/deep/ .el-select .el-input .el-select__caret {
+/deep/ .el-select .ii-input .el-select__caret {
   @media #{$media} and ($feature: $value) {
     line-height: 40px;
   }
@@ -136,7 +136,7 @@ export default {
     },
     handleSave () {
       if (!this.currentrow) {
-        this.$defmsgbox('error', this.$t('msg.selectRow'))
+        this.$ii_message('error', this.$t('msg.selectRow'))
         return
       }
       this.$emit('getrowdata', this.currentrow)
@@ -199,7 +199,7 @@ export default {
       if (!Reflect.has(this.tableDefine, 'anotherData')) {
         let result = await axios[this.tableDefine.requesturl.type](this.tableDefine.requesturl.api, this.tableDefine.requesturl.type.toUpperCase() === 'GET' ? {params: this.tableDefine.requesturl.params} : this.tableDefine.requesturl.params)
         if (result.data && result.data.errMsg) {
-          this.$defmsgbox('error', result.data.errMsg)
+          this.$ii_message('error', result.data.errMsg)
           return false
         }
         if (result.data && !result.data.errMsg) {

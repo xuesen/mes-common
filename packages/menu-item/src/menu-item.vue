@@ -6,9 +6,9 @@
     </el-menu-item>
     <el-submenu :show-timeout="10" :hide-timeout="10" v-else :index="''+item.id">
       <template slot="title">
-        <el-tooltip effect="dark" :content="item.label" placement="top-start">
+        <ii-tooltip effect="dark" :content="item.label" placement="top-start">
           <span>{{getlable(item)}}</span>
-        </el-tooltip>
+        </ii-tooltip>
       </template>
       <menu-item @click="menuItemClick" :itemdata="item.children"></menu-item>
     </el-submenu>
@@ -17,7 +17,7 @@
 </template>
 
 <style lang="scss" scoped="" type="text/css">
-.menuitem .el-button+.el-button {
+.menuitem .ii-button+.ii-button {
   margin-left: 0px;
 }
 </style>

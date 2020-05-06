@@ -22,6 +22,24 @@ module.exports = {
       })
   },
 
+  // configureWebpack: {
+  //   externals: {
+  //     vue: 'Vue',
+  //     axios: 'axios',
+  //     'element-ui': 'ElementUI',
+  //     'vue-i18n': 'VueI18n',
+  //     'vue-class-component': 'vue-class-component',
+  //     'vue-property-decorator': 'vue-property-decorator',
+  //     'vue-router': 'VueRouter',
+  //     vuex: 'Vuex',
+  //     'file-saver': 'saveAs',
+  //     jquery: '$',
+  //     lodash: '_',
+  //     moment: 'moment',
+  //     vuedraggable: 'vuedraggable',
+  //     xlsx: '^0.15.6'
+  //   }
+  // },
   // pages:{ type:Object,Default:undfind }
   /*
 构建多页面模式的应用程序.每个“页面”都应该有一个相应的JavaScript条目文件。该值应该是一
@@ -57,7 +75,23 @@ module.exports = {
     port: 8090, // 端口号
     host: 'localhost',
     https: false, // https:{type:Boolean}
-    open: true // 配置自动启动浏览器
+    open: true, // 配置自动启动浏览器
     // proxy: 'http://localhost:4000' // 配置跨域处理,只有一个代理
+    proxy: {
+      '/datacenterservice': {
+        target: 'http://10.190.80.224:3000',
+        changeOrigin: true,
+        pathRewrite: {
+          '^/datacenterservice': ''
+        }
+      },
+      '/dataimportservice': {
+        target: 'http://10.190.80.224:3001',
+        changeOrigin: true,
+        pathRewrite: {
+          '^/dataimportservice': ''
+        }
+      }
+    }
   }
 }

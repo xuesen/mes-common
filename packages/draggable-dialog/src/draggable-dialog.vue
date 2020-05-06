@@ -1,11 +1,16 @@
 <template>
-  <el-dialog ref="draggable_dialog" class="ii-draggable-dialog" v-bind="$props"></el-dialog>
+  <ii-dialog ref="draggable_dialog" :visible="visible" @opend="$emit('opend')" @close="$emit('close')" @closed="$emit('closed')" v-bind="$props">
+    <slot name="title" slot="title"></slot>
+    <slot />
+    <slot name="footer" slot="footer"></slot>
+  </ii-dialog>
 </template>
 <script>
 import { Dialog } from 'element-ui'
 export default {
   name: 'IiDraggableDialog',
   props: {
+    visible: Boolean,
     ...Dialog.props // 继承内在组件的props
   },
   mounted () {
@@ -13,6 +18,7 @@ export default {
     const dialogHeaderEl = this.$refs.draggable_dialog.$el.querySelector('.el-dialog__header')
     // 弹窗
     const dragDom = this.$refs.draggable_dialog.$el.querySelector('.el-dialog')
+    let el = this.$refs.draggable_dialog.$el
     // 给弹窗加上overflow auto；不然缩小时框内的标签可能超出dialog；
     dragDom.style.overflow = 'auto'
     // 清除选择头部文字效果

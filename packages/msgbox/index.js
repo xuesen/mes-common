@@ -1,8 +1,9 @@
-import MessageBox from './src/message-box.vue'
-import { ErrormsgConstructor } from 'element-ui'
-MessageBox.install = function (Vue) {
+import Vue from 'vue'
+import Errormsg from './src/message-box.vue'
+const ErrormsgConstructor = Vue.extend(Errormsg)
+const install = function (Vue) {
   let seed = 0
-  Object.defineProperty(Vue.prototype, '$iimessage', {
+  Object.defineProperty(Vue.prototype, '$ii_message', {
     get () {
       const id = 'message_' + seed++
       const errormsg = (type, tip) => {
@@ -23,4 +24,4 @@ MessageBox.install = function (Vue) {
   })
 }
 
-export default MessageBox
+export default install

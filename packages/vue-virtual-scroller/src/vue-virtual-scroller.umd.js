@@ -1,3 +1,4 @@
+/* eslint-disable */
 (function (global, factory) {
 	typeof exports === 'object' && typeof module !== 'undefined' ? factory(exports, require('vue')) :
 	typeof define === 'function' && define.amd ? define(['exports', 'vue'], factory) :

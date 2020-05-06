@@ -1,10 +1,10 @@
 <template>
 <div style="width: 100%; height: 100%;">
   <div class="filter">
-      <el-input
+      <ii-input
       v-model="filterKeyWord"
       placeholder="Filter..."
-      ></el-input>
+      ></ii-input>
   </div>
   <slot name="buttonGroup"></slot>
   <div style="width: calc(100%);" :style="{height: 'calc(100% - ' + headerHeight + ')'}">
@@ -30,7 +30,7 @@
 </template>
 <style lang="scss" scoped="" type="text/css">
 @import '../../styles/variables.scss';
-  .el-select .el-input input, .el-input input {
+  .el-select .ii-input input, .ii-input input {
     border-bottom: 1px solid rgba(112,112,112,1);
   }
 </style>

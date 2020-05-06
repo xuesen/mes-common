@@ -1,12 +1,12 @@
 <template>
     <div>
-       <el-dialog v-dialogDrag title='Add User' :visible="visible"
+       <ii-dialog v-dialogDrag title='Add User' :visible="visible"
             :modal="true" top="0" :close-on-click-modal="false"
             :show-close='false' @open= 'handleOpen' @close= 'handleClose' class="dialogwidth2">
           <div class="filters">
           <el-form ref="department" :model="form" label-width="100px">
-              <el-row>
-                  <el-col :span="18">
+              <ii-row>
+                  <ii-col :span="18">
                     <el-form-item :label='$t("role.company")'>
                         <el-select v-model="form.company" style="width:100%">
                             <el-option
@@ -17,10 +17,10 @@
                             </el-option>
                         </el-select>
                     </el-form-item>
-                  </el-col>
-              </el-row>
-              <el-row>
-                  <el-col :span="18">
+                  </ii-col>
+              </ii-row>
+              <ii-row>
+                  <ii-col :span="18">
                     <el-form-item :label='$t("role.department")'>
                         <el-select v-model="form.department" style="width:100%">
                             <el-option
@@ -31,52 +31,52 @@
                             </el-option>
                         </el-select>
                     </el-form-item>
-                  </el-col>
-              </el-row>
-              <el-row>
-                  <el-col :span="18">
+                  </ii-col>
+              </ii-row>
+              <ii-row>
+                  <ii-col :span="18">
                     <el-form-item :label='$t("role.search")'>
-                    <el-input v-model="form.search"></el-input>
+                    <ii-input v-model="form.search"></ii-input>
                     </el-form-item>
-                  </el-col>
-                  <el-col :xs="24" :sm="6" :md="6" :lg="6" :offset = "0" style="text-align: right">
-                    <el-button type="primary" @click="fetchUserData">{{$t("button.search")}}</el-button>
-                </el-col>
-              </el-row>
+                  </ii-col>
+                  <ii-col :xs="24" :sm="6" :md="6" :lg="6" :offset = "0" style="text-align: right">
+                    <ii-button type="primary" @click="fetchUserData">{{$t("button.search")}}</ii-button>
+                </ii-col>
+              </ii-row>
           </el-form>
             </div>
-          <el-row>
-            <el-col :span="24">
-                <el-table :data="users" ref="table" height="200" stripe border style="width: 100%"
+          <ii-row>
+            <ii-col :span="24">
+                <ii-table :data="users" ref="table" height="200" stripe border style="width: 100%"
                     v-loading.body="loading"
                     :highlight-current-row= "true"
                     @selection-change="handleMultiSelectionChange"
                     @row-click="handleSelectionChange">
-                    <el-table-column v-if="multiSelect" width= "40" type="selection" class-name="select_box">
-                    </el-table-column>
-                    <el-table-column prop="name" :label='$t("role.name")' min-width= "140">
-                    </el-table-column>
-                    <el-table-column prop="code" :label='$t("role.login")' min-width= "100">
-                    </el-table-column>
-                </el-table>
-            </el-col>
-          </el-row>
+                    <ii-table-column v-if="multiSelect" width= "40" type="selection" class-name="select_box">
+                    </ii-table-column>
+                    <ii-table-column prop="name" :label='$t("role.name")' min-width= "140">
+                    </ii-table-column>
+                    <ii-table-column prop="code" :label='$t("role.login")' min-width= "100">
+                    </ii-table-column>
+                </ii-table>
+            </ii-col>
+          </ii-row>
           <div slot="footer" class="dialog-footer">
-            <el-button type="text" @click="handleCancel">{{$t('button.cancel')}}</el-button>
-            <el-button type="primary" @click="handleSelect">{{$t('button.ok')}}</el-button>
+            <ii-button type="text" @click="handleCancel">{{$t('button.cancel')}}</ii-button>
+            <ii-button type="primary" @click="handleSelect">{{$t('button.ok')}}</ii-button>
           </div>
           <Confirm ref="Error" type="error"></Confirm>
-      </el-dialog>
+      </ii-dialog>
   </div>
 </template>
 <style lang="css">
 
-  .el-button + .el-button
+  .ii-button + .ii-button
   {
       margin-left: 0px;
   }
 
-  .el-dialog--customer
+  .ii-dialog--customer
   {
     width: 50%
   }

@@ -1,4 +1,5 @@
 <template>
+<div class="ii-cascader">
   <el-cascader
     :disabled="disabled"
     v-if="dataReady"
@@ -10,6 +11,7 @@
     :clearable="true"
     filterable>
   </el-cascader>
+</div>
 </template>
 
 <style lang="scss" scoped>

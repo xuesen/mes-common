@@ -1,46 +1,46 @@
 <template>
-<el-container>
-    <el-header :height="headerHeight">
-    <div class="tableTop">
-      <el-row>
-        <el-col :span="4" v-if="!hideAdd || !hideExport || showImport">
-          <el-button-group>
-            <el-tooltip class="item" effect="dark" :content='$t("button.add")' placement="top" v-if="!hideAdd">
-              <el-button @click="handleAdd()"><ii-svg-icon :name="'btnicon/add'" width="24" height="24"/></el-button>
-            </el-tooltip>
-            <el-tooltip class="item" effect="dark" :content='$t("button.export")' placement="top" v-if="!hideExport">
-              <el-button @click="handleExport()"><ii-svg-icon :name="'btnicon/export'" width="24" height="24"/></el-button>
-            </el-tooltip>
-            <el-tooltip class="item" effect="dark" :content='$t("button.import")' placement="top" v-if="showImport">
+<ii-container direction="vertical" class="ii-maitain-page">
+    <ii-header :height="headerHeight">
+    <div class="ii-table-top">
+      <ii-row>
+        <ii-col :span="4" v-if="!hideAdd || !hideExport || showImport">
+          <ii-button-group>
+            <ii-tooltip class="item" effect="dark" :content='$t("button.add")' placement="top" v-if="!hideAdd">
+              <ii-button @click="handleAdd()"><ii-svg-icon :name="'btnicon/add'" width="24" height="24"/></ii-button>
+            </ii-tooltip>
+            <ii-tooltip class="item" effect="dark" :content='$t("button.export")' placement="top" v-if="!hideExport">
+              <ii-button @click="handleExport()"><ii-svg-icon :name="'btnicon/export'" width="24" height="24"/></ii-button>
+            </ii-tooltip>
+            <ii-tooltip class="item" effect="dark" :content='$t("button.import")' placement="top" v-if="showImport">
               <ii-import-excel v-on:importSuccess="refreshData" :entity="entity" :uploadAction="uploadAction"></ii-import-excel>
-            </el-tooltip>
-          </el-button-group>
-        </el-col>
-        <el-col :span="3" v-if="!hideSearch">
-          <el-select v-model="searchKey" :placeholder='$t("basic.selectPlaceholder")'>
-            <el-option
+            </ii-tooltip>
+          </ii-button-group>
+        </ii-col>
+        <ii-col :span="3" v-if="!hideSearch">
+          <ii-select-org v-model="searchKey" :placeholder='$t("basic.selectPlaceholder")'>
+            <ii-option-org
               v-for="item in searchItem"
               :key="'searchselectoption' + item.value"
               :label="getColumnLabel(item.label)"
               :value="item.value">
-            </el-option>
-          </el-select>
-        </el-col>
-        <el-col :span="3" style="margin-left: 16px;" v-if="!hideSearch">
-          <el-input
+            </ii-option-org>
+          </ii-select-org>
+        </ii-col>
+        <ii-col :span="3" style="margin-left: 16px;" v-if="!hideSearch">
+          <ii-input
             :placeholder="$t('placeholder.inputKeyWord')"
             v-model="searchValue"
-            @keyup.enter.native="refreshData()"></el-input>
-        </el-col>
-        <el-col :span="2" v-if="!hideSearch" class="serach">
-          <el-tooltip class="item" effect="dark" :content='$t("button.search")' placement="top-start">
-             <el-button><ii-svg-icon :name="'btnicon/search'" width="24" height="24" @click.native="datamaintainserach"/></el-button>
-          </el-tooltip>
-        </el-col>
-      </el-row>
+            @keyup.enter.native="refreshData()"></ii-input>
+        </ii-col>
+        <ii-col :span="2" v-if="!hideSearch" class="search">
+          <ii-tooltip class="item" effect="dark" :content='$t("button.search")' placement="top-start">
+             <ii-button><ii-svg-icon :name="'btnicon/search'" width="24" height="24" @click.native="datamaintainserach"/></ii-button>
+          </ii-tooltip>
+        </ii-col>
+      </ii-row>
     </div>
-    </el-header>
-    <el-main>
+    </ii-header>
+    <ii-main>
       <ii-maintain-table
         ref="maintainTable"
         :fixTableHeight="fixTableHeight"
@@ -64,21 +64,12 @@
           <slot name="rowHandlerLast" v-bind:row="row"></slot>
         </template>
       </ii-maintain-table>
-    </el-main>
-  </el-container>
+    </ii-main>
+  </ii-container>
 </template>
-
-<style lang="scss" scoped="" type="text/css">
-.serach .el-button:hover {
-  background-color: rgba(63, 209, 219, 0.16);
-  border-radius: 50%;
-  color:#606266;
-}
-</style>
 
 <script>
 import _ from 'lodash'
-import Vue from 'vue'
 import IiMaintainTable from '../../maintain-table'
 import IiImportExcel from '../..//import-excel'
 import IiSvgIcon from '../..//svg-icon'
@@ -86,7 +77,8 @@ export default {
   name: 'IiMaintainPage',
   components: {
     IiMaintainTable,
-    IiImportExcel
+    IiImportExcel,
+    IiSvgIcon
   },
   props: {
     maintaintop: {
@@ -115,7 +107,7 @@ export default {
   },
   data () {
     return {
-      headerHeight: '100px',
+      headerHeight: '50px',
       searchKey: this.searchItem[0].value,
       searchValue: '',
       dataReady: false,
@@ -140,12 +132,12 @@ export default {
       this.$refs.maintainTable.openEditDialog()
     },
     findJoinCondition (cascades, entity) {
-      let result = _.find(cascades, {entity: entity})
+      let result = _.find(cascades, { entity: entity })
       if (result) {
         return result
       } else {
         let resultInner = null
-        _.each(cascades, (cascade, index) => {
+        _.each(cascades, (cascade) => {
           resultInner = this.findJoinCondition(cascade.cascades, entity)
           if (resultInner) {
             return false
@@ -166,7 +158,7 @@ export default {
     async refreshData () {
       this.loading = true
       let result = null
-      let searchCondition = this.cascades ? {cascades: _.cloneDeep(this.cascades)} : {}
+      let searchCondition = this.cascades ? { cascades: _.cloneDeep(this.cascades) } : {}
       if (this.orderby) {
         searchCondition.orderby = this.orderby
       } else {

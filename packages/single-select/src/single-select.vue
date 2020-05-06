@@ -1,13 +1,15 @@
 <template>
-  <el-select v-model="selectedValue" :disabled="disabled" autocomplete="on" :filterable="true" @clear="$emit('clear')" :clearable="clearable" @change="selectChange" :placeholder='$t("basic.selectPlaceholder")'>
-    <el-option
+<div class="ii-select">
+  <ii-select v-model="selectedValue" :disabled="disabled" autocomplete="on" :filterable="true" @clear="$emit('clear')" :clearable="clearable" @change="selectChange" :placeholder='$t("basic.selectPlaceholder")'>
+    <ii-option
       v-for="item in selectItems"
       :key="item[initOptions.valueFiled ? initOptions.valueFiled : 'id']"
       :label="labels(item)"
       :value="item[initOptions.valueFiled ? initOptions.valueFiled : 'id']"
       :clearable="true">
-    </el-option>
-  </el-select>
+    </ii-option>
+  </ii-select>
+</div>
 </template>
 <script>
 import _ from 'lodash'
@@ -40,7 +42,7 @@ export default {
   },
   methods: {
     selectChange (selected) {
-      var selectedObj = _.find(this.selectItems, (item) => { return item[this.initOptions.valueFiled ? this.initOptions.valueFiled : 'id'] === selected })
+      let selectedObj = _.find(this.selectItems, (item) => { return item[this.initOptions.valueFiled ? this.initOptions.valueFiled : 'id'] === selected })
       this.$emit('update:valueObj', selectedObj)
       if (this.initOptions.valueFiled) {
         this.$emit('input', selectedObj[this.initOptions.valueFiled])

@@ -13,7 +13,7 @@
         :on-progress="() => { this.uploading=true }"
         :on-error="uploadError"
         :on-success="handleSuccess">
-        <el-button v-loading="uploading" slot="trigger"><svg-icon width="24" height="24" :name="'btnicon/import'"/></el-button>
+        <ii-button v-loading="uploading" slot="trigger"><svg-icon width="24" height="24" :name="'btnicon/import'"/></ii-button>
       </el-upload>
       <el-dropdown-menu slot="dropdown">
         <el-dropdown-item><el-link :underline="false" :href="'./static/template/' + this.entity + '.xlsx'"><svg-icon :name="'btnicon/excel'" style="vertical-align: middle;" width="20" height="20"/><span style="display:inline-block;padding-left:10px;vertical-align: middle;">{{ $t("importExcel.downloadTemplate") }}</span></el-link></el-dropdown-item>
@@ -106,7 +106,7 @@ export default {
     },
     uploadError (err, file, fileList) {
       this.uploading = false
-      this.$defmsgbox('error', this.$t('msg.importError') + '\n' + err)
+      this.$ii_message('error', this.$t('msg.importError') + '\n' + err)
     },
     handleSuccess () {
       this.uploading = false

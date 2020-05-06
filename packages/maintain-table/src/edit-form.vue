@@ -1,36 +1,36 @@
 <template>
-  <ii-draggable-dialog :close-on-click-modal="false" @closed="closediag()" :top="top+'vh'"  :visible="show" :title="title" :width="formDefine.width ? formDefine.width : '600px'" @close="handleClose" class="viewinfor">
-    <el-form :model="form" v-if="dataReady" :rules="rules" ref="form" :label-width="formDefine.labelWidth">
-      <el-row v-for="(row, index) in fromprop" :key="'formRow' + index">
-          <el-col v-for="item in row" v-if="!item.hidden" :span="item.span" :key="item.key">
-            <el-form-item :label='item.getdefinelable ? item.getdefinelable($data) :getItemLabel(item)' v-if="String(item.control).toLowerCase().indexOf('select') === -1 && !item.disenable" :prop="item.key">
-              <el-row v-if="item.control === 'input'">
-                <el-col :span="item.unit ? 23 :24">
-                  <el-input :disabled="item.onlyread || item.disenable" v-model="form[item.key]"></el-input>
-                </el-col>
-                <el-col :span="1" justify="end" v-if="item.unit">
+  <ii-draggable-dialog :close-on-click-modal="false" @closed="closediag()" :top="top+'vh'"  :visible="show" :title="title" :width="formDefine.width ? formDefine.width : '600px'" @close="handleClose">
+    <ii-form :model="form" v-if="dataReady" :rules="rules" ref="form" :label-width="formDefine.labelWidth">
+      <ii-row v-for="(row, index) in fromprop" :key="'formRow' + index">
+          <ii-col v-for="item in row" v-if="!item.hidden" :span="item.span" :key="item.key">
+            <ii-form-item :label='item.getdefinelable ? item.getdefinelable($data) :getItemLabel(item)' v-if="String(item.control).toLowerCase().indexOf('select') === -1 && !item.disenable" :prop="item.key">
+              <ii-row v-if="item.control === 'input'">
+                <ii-col :span="item.unit ? 23 :24">
+                  <ii-input :disabled="item.onlyread || item.disenable" v-model="form[item.key]"></ii-input>
+                </ii-col>
+                <ii-col :span="1" justify="end" v-if="item.unit">
                   <span>{{item.unit($data)}}</span>
-                </el-col>
-              </el-row>
-              <el-input :disabled="item.onlyread || item.disenable" type="textarea" :rows="4" v-if="item.control === 'textarea'" v-model="form[item.key]"></el-input>
-              <el-date-picker :disabled="item.onlyread || item.disenable" v-if="item.control === 'datetime'" value-format="yyyy-MM-dd HH:mm:ss" v-model="form[item.key]" type="datetime" placeholder=""></el-date-picker>
-              <el-date-picker :disabled="item.onlyread || item.disenable" v-if="item.control === 'date'"  value-format="yyyy-MM-dd" v-model="form[item.key]" type="date" placeholder=""></el-date-picker>
-            </el-form-item>
-            <el-form-item :label='getItemLabel(item)' v-if="item.control === 'select'" :prop="item.key+'.id'">
+                </ii-col>
+              </ii-row>
+              <ii-input :disabled="item.onlyread || item.disenable" type="textarea" :rows="4" v-if="item.control === 'textarea'" v-model="form[item.key]"></ii-input>
+              <ii-date-picker :disabled="item.onlyread || item.disenable" v-if="item.control === 'datetime'" value-format="yyyy-MM-dd HH:mm:ss" v-model="form[item.key]" type="datetime" placeholder=""></ii-date-picker>
+              <ii-date-picker :disabled="item.onlyread || item.disenable" v-if="item.control === 'date'"  value-format="yyyy-MM-dd" v-model="form[item.key]" type="date" placeholder=""></ii-date-picker>
+            </ii-form-item>
+            <ii-form-item :label='getItemLabel(item)' v-if="item.control === 'select'" :prop="item.key+'.id'">
               <ii-select :disabled="item.onlyread || item.disenable" v-model="form[item.key].id" :valueObj.sync="singleselectonj"  :initOptions="item" :ref="item.key" v-if="item.control === 'select'" ></ii-select>
-           </el-form-item>
-            <el-form-item :label='getItemLabel(item)' v-if="item.control === 'selectval'" :prop="item.key">
+           </ii-form-item>
+            <ii-form-item :label='getItemLabel(item)' v-if="item.control === 'selectval'" :prop="item.key">
               <ii-select :disabled="item.onlyread || item.disenable" v-model="form[item.key]" :valueObj.sync="singleselectonj"  :initOptions="item" v-if="item.control === 'selectval'" ></ii-select>
-           </el-form-item>
-            <el-form-item :label='getItemLabel(item)' v-if="item.control ==='cascaderSelect'" :prop="item.correctcascadesname ? item.correctcascadesname + '.id' : item.key + '.id'">
+           </ii-form-item>
+            <ii-form-item :label='getItemLabel(item)' v-if="item.control ==='cascaderSelect'" :prop="item.correctcascadesname ? item.correctcascadesname + '.id' : item.key + '.id'">
               <ii-cascader :disabled="item.onlyread || item.disenable" v-model="form[item.correctcascadesname ? item.correctcascadesname : item.key].id" :initOptions="item" v-if="item.control === 'cascaderSelect'"></ii-cascader>
-            </el-form-item>
-         </el-col>
-      </el-row>
-    </el-form>
+            </ii-form-item>
+         </ii-col>
+      </ii-row>
+    </ii-form>
     <span slot="footer" class="dialog-footer">
-      <el-button type="text" @click="handleCancel()">{{$t('button.cancel')}}</el-button>
-      <el-button type="primary" @click="handleSave()">{{$t('button.save')}}</el-button>
+      <ii-button type="text" @click="handleCancel()">{{$t('button.cancel')}}</ii-button>
+      <ii-button type="primary" @click="handleSave()">{{$t('button.save')}}</ii-button>
     </span>
   </ii-draggable-dialog>
 </template>
@@ -41,12 +41,12 @@ import _ from 'lodash'
 import moment from 'moment'
 import IiDraggableDialog from '../../draggable-dialog'
 import IiSelect from '../../single-select'
-import Iicascader from '../../cascader'
+import IiCascader from '../../cascader'
 export default {
   name: 'IiEditForm',
   components: {
     IiSelect,
-    Iicascader
+    IiCascader
   },
   props: {
     top: {
@@ -271,7 +271,7 @@ export default {
       }
       this.beforeSavedata = _.clone(this.form)
       this.doSaving = true
-      this.form.editor_id = this.$session.get('loginstate').user.code ? this.$session.get('loginstate').user.code : '9999'
+      this.form.editor_id = this.$session.get('loginstate') && this.$session.get('loginstate').user && this.$session.get('loginstate').user.code ? this.$session.get('loginstate').user.code : '9999'
       this.$refs['form'].validate(async (valid) => {
         if (valid) {
           let beforesave = null
@@ -322,7 +322,7 @@ export default {
               return
             }
             try {
-              await this.$defmsgbox('confirm', _this.$t('confirmMsg.newAnather'))
+              await this.$ii_message('confirm', _this.$t('confirmMsg.newAnather'))
               this.handlenewAnother()
               this.clearData()
               this.doSaving = false

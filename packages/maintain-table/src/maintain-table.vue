@@ -1,8 +1,8 @@
 <template>
-  <div style="width: 100%;height: 100%;">
-    <div class="tableResult" v-if="!hiddeResutTag">result:{{recordCount}}</div>
-    <el-table @current-change="changeCurrentRow" @row-click="handleRowClick" ref="table" empty-text=" " class="virtualTable" v-loading="loading" :fit="true" :data="pageData" @sort-change="handleSortChange" v-if="dataReady" :height="tableHeight" highlight-current-row stripe :border="true">
-      <el-table-column v-for="column in searchItem"
+  <div class="ii-maintain-table">
+    <div class="ii-table-result" v-if="!hiddeResutTag">result:{{recordCount}}</div>
+    <ii-table @current-change="changeCurrentRow" @row-click="handleRowClick" ref="table" empty-text=" " class="virtualTable" v-loading="loading" :fit="true" :data="pageData" @sort-change="handleSortChange" v-if="dataReady" :height="tableHeight" highlight-current-row stripe :border="true">
+      <ii-table-column v-for="column in searchItem"
         :key="'tableColumn' + column.value"
         :label="getColumnLabel(column.label)"
         :prop="column.value"
@@ -13,15 +13,15 @@
         <template slot-scope="scope">
             <span>{{  column.formater ? column.formater(scope.row) : getColumnValue(column.value, scope.row)}}</span>
         </template>
-      </el-table-column>
-      <el-table-column
+      </ii-table-column>
+      <ii-table-column
         v-if="!hideRecordFixInfo"
         prop="editor.name"
         :label='$t("basic.editorName")'
         min-width="120"
         sortable>
-      </el-table-column>
-      <!-- <el-table-column
+      </ii-table-column>
+      <!-- <ii-table-column
         v-if="!hideRecordFixInfo"
         prop="updateTime"
         :label='$t("basic.updateTime")'
@@ -30,23 +30,23 @@
         <template slot-scope="scope">
           <span>{{scope.row.update_time | dateFormat}}</span>
         </template>
-      </el-table-column> -->
-      <el-table-column class-name="rowHandlerGroup" fixed="right" v-if="!onlyView && !custButtonGroup" :label='rowButtonGroupLabel || $t("basic.btnGroupInRow")' :width="rowButtonGroupWidth || 95">
+      </ii-table-column> -->
+      <ii-table-column class-name="row-handler-group" fixed="right" v-if="!onlyView && !custButtonGroup" :label='rowButtonGroupLabel || $t("basic.btnGroupInRow")' :width="rowButtonGroupWidth || 95">
         <template slot-scope="scope">
           <slot name="rowHandlerFirst" v-bind:row="scope.row"></slot>
-          <el-button size="small" @click="handleEdit(scope.$index, scope.row)" :disabled="editfunc(scope.row)"><svg-icon :name="'btnicon/edit'"/></el-button>
+          <ii-button size="small" @click="handleEdit(scope.$index, scope.row)" :disabled="editfunc(scope.row)"><ii-svg-icon :name="'btnicon/edit'"/></ii-button>
           <slot name="rowHandlerMiddle" v-bind:row="scope.row"></slot>
-          <el-button v-if="!hidedeletebtn" size="small" @click="customizedelete ? customizedelete(scope.$index, scope.row): handleDelete(scope.$index, scope.row)" :disabled="deletefunc(scope.row)"><svg-icon :name="'btnicon/delete'"/></el-button>
+          <ii-button v-if="!hidedeletebtn" size="small" @click="customizedelete ? customizedelete(scope.$index, scope.row): handleDelete(scope.$index, scope.row)" :disabled="deletefunc(scope.row)"><ii-svg-icon :name="'btnicon/delete'"/></ii-button>
           <slot name="rowHandlerLast" v-bind:row="scope.row"></slot>
         </template>
-      </el-table-column>
-      <el-table-column class-name="custButtonGroup" fixed="right" v-if="custButtonGroup" :label='rowButtonGroupLabel' :width="rowButtonGroupWidth || 95">
+      </ii-table-column>
+      <ii-table-column class-name="cust-button-group" fixed="right" v-if="custButtonGroup" :label='rowButtonGroupLabel' :width="rowButtonGroupWidth || 95">
         <template slot-scope="scope">
           <slot name="custButtonGroup" v-bind:row="scope.row"></slot>
         </template>
-      </el-table-column>
+      </ii-table-column>
       <div class="append" slot="append" style="text-align: center"></div>
-    </el-table>
+    </ii-table>
     <ii-edit-form ref="editForm" v-if="!onlyView" :top="dialogtop" :entity="entity" :formDefine="formDefine" @haveSaved="$emit('dataUpdated')"></ii-edit-form>
   </div>
 </template>
@@ -54,14 +54,15 @@
 <script>
 import XLSX from 'xlsx'
 import _ from 'lodash'
-import Vue from 'vue'
 import IiEditForm from './edit-form.vue'
 import VirtualTable from './virtual-table.mixin.js'
-var moment = require('moment')
+import IiSvgIcon from '../..//svg-icon'
+import moment from 'moment'
 export default {
   name: 'IiMaintainTable',
   components: {
-    IiEditForm
+    IiEditForm,
+    IiSvgIcon
   },
   mixins: [VirtualTable],
   props: {
@@ -89,8 +90,8 @@ export default {
       loading: false,
       currentRow: undefined,
       exportdata: [],
-      deletefunc: this.formDefine.deletefunc ? this.formDefine.deletefunc : (data) => { return false },
-      editfunc: this.formDefine.editfunc ? this.formDefine.editfunc : (data) => { return false }
+      deletefunc: this.formDefine.deletefunc ? this.formDefine.deletefunc : () => { return false },
+      editfunc: this.formDefine.editfunc ? this.formDefine.editfunc : () => { return false }
     }
   },
   methods: {
@@ -116,8 +117,8 @@ export default {
           this.searchItem.forEach(column => {
             rowdata.push(column.formater ? column.formater(row) : this.getColumnValue(column.value, row))
           })
-          rowdata.push(row['editor_id'])
-          rowdata.push(moment(row['update_time']).format('YYYY-MM-DD HH:mm:ss'))
+          rowdata.push(row.editor_id)
+          rowdata.push(moment(row.update_time).format('YYYY-MM-DD HH:mm:ss'))
           this.exportdata.push(rowdata)
         })
         const ws = XLSX.utils.aoa_to_sheet(_this.exportdata)
@@ -125,7 +126,7 @@ export default {
         XLSX.utils.book_append_sheet(wb, ws)
         XLSX.writeFile(wb, 'default' + '(' + moment().format() + ')' + '.xlsx')
       } else {
-        this.$defmsgbox('warn', _this.$t('workorder.no_current_workorder_data_can_not_be_exported'))
+        this.$ii_message('warn', _this.$t('workorder.no_current_workorder_data_can_not_be_exported'))
       }
     },
     openEditDialog () {
@@ -140,14 +141,14 @@ export default {
     async handleDelete (rowIndex, data) {
       let _this = this
       console.log(data)
+      // 确认操作
+      await this.$ii_message('confirm', this.$t('confirmMsg.deletemsg'))
       try {
-        // 确认操作
-        await this.$defmsgbox('confirm', this.$t('confirmMsg.deletemsg'))
-        await _this.$maintain_service_agent(_this.entity, 'deleteById/' + data.id + '/' + this.$session.get('loginstate').user.code, 'delete', {})
+        await _this.$maintain_service_agent(_this.entity, 'deleteById/' + data.id + '/' + (this.$session.get('loginstate') && this.$session.get('loginstate').user && this.$session.get('loginstate').user.code ? this.$session.get('loginstate').user.code : '9999'), 'delete', {})
         _this.$emit('dataUpdated', 'delete')
       } catch (error) {
         // modify ITC-1744-0140
-        this.$defmsgbox('error', error)
+        this.$ii_message('error', error)
         console.log(error)
       }
     },

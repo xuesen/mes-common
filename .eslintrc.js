@@ -14,6 +14,12 @@ module.exports = {
   rules: {
     'no-console': process.env.NODE_ENV === 'production' ? 'warn' : 'off',
     'no-debugger': process.env.NODE_ENV === 'production' ? 'warn' : 'off',
-    'camelcase': 'off'
+    '@typescript-eslint/camelcase': 'off',
+    '@typescript-eslint/no-empty-function': 'off',
+    'prefer-const': 'off',
+    '@typescript-eslint/no-this-alias': 'off',
+    'object-curly-spacing': 'off',
+    'dot-notation': 'off',
+    camelcase: 'off'
   }
 }
