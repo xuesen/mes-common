@@ -1,71 +1,99 @@
+.ii-dialog {
+  .el-dialog__wrapper {
+    background-color: transparent;
+    -webkit-box-pack: center;
+    -ms-flex-pack: center;
+    justify-content: center;
+    -webkit-box-align: center;
+    -ms-flex-align: center;
+    align-items: center;
+    display: -webkit-flex;
+  }
+}
+.ii-svg-icon {
+  display: inline-block;
+  color: inherit;
+  fill: currentColor;
+  /* color: black; */
+  vertical-align: middle;
+}
+.ii-dropdown-menu {
+}
 .ii-message-box {
   -webkit-transition: opacity .15s linear;
   -o-transition: opacity .15s linear;
   transition: opacity .15s linear;
-  &.ii-dialog {
-    ::-webkit-scrollbar { width: 0 !important }
-    width:800px;
-    box-shadow:0px 8px 12px rgba(0,0,0,0.3);
-    opacity:1;
-    border: none;
-    .el-dialog__header {
-      background: transparent;
+  &.ii-dialog .el-dialog__wrapper {
+    .el-dialog {
+      ::-webkit-scrollbar { width: 0 !important }
+      width:800px;
+      box-shadow:0px 8px 12px rgba(0,0,0,0.3);
+      opacity:1;
       border: none;
-      .el-dialog__title{
+      .el-dialog__header {
         background: transparent;
-        font-size: 45px;
-        font-weight: 700;
-        line-height: 56px;
+        border: none;
+        padding-top: 90px;
+        .el-dialog__title{
+          background: transparent;
+          font-size: 45px;
+          font-weight: 700;
+          line-height: 56px;
+          color: #fff;
+          opacity: 1;
+        }
+      }
+      &.el-dialog--center .el-dialog__body{
+        padding: 25px 25px 30px
+      }
+      .el-dialog__body {
+        background: transparent;
+        height: 160px;
+        text-align: center;
+        overflow-y:auto;
+        word-wrap: break-word;
+        word-break: break-all;
+        font-size: 16px;
+        font-weight: 500;
+        line-height: 29px;
         color: #fff;
         opacity: 1;
       }
-    }
-    .el-dialog__body {
-      background: transparent;
-      height: 160px;
-      text-align: center;
-      overflow-y:auto;
-      word-wrap: break-word;
-      word-break: break-all;
-      font-size: 16px;
-      font-weight: 500;
-      line-height: 29px;
-      color: #fff;
-      opacity: 1;
-    }
-    .el-dialog__footer {
-      .dialog-footer {
-        display: inline-block;
-        .ii-button {
-          padding: 0px;
-          margin: 0px;
-          .el-button {
-            width: 140px;
-            height: 40px;
-            background: transparent;
-            -webkit-box-shadow: 0 8px 12px rgba(0,0,0,.3);
-            box-shadow: 0 8px 12px rgba(0,0,0,.3);
-            border: 2px solid #fff;
-            border-radius: 6px;
-            font-size: 18px;
-            font-weight: 500;
-            color: #fff;
-            line-height: 0.05;
-          }
-          &+.ii-button {
-            margin-left: 10px;
+      .el-dialog__footer {
+        background-color: transparent;
+        .dialog-footer {
+          display: inline-block;
+          .ii-button {
+            padding: 0px;
+            margin: 0px;
+            .el-button {
+              width: 140px;
+              height: 40px;
+              background: transparent;
+              -webkit-box-shadow: 0 8px 12px rgba(0,0,0,.3);
+              box-shadow: 0 8px 12px rgba(0,0,0,.3);
+              border: 2px solid #fff;
+              border-radius: 6px;
+              font-size: 18px;
+              font-weight: 500;
+              color: #fff;
+              line-height: 0.05;
+            }
+            &+.ii-button {
+              margin-left: 10px;
+            }
           }
         }
       }
-    }
-    .error {
-      background:rgba(242,76,23,1);
-    }
-    .warn {
-      background:#FCCB28;
-    }
-    .confirm {
-      background:rgba(27,119,225,1);
+      &.error {
+        background:rgba(242,76,23,1);
+      }
+      &.warn {
+        background:#FCCB28;
+      }
+      &.confirm {
+        background:rgba(27,119,225,1);
+      }
     }
   }
 }

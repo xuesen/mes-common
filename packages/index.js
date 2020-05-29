@@ -1,6 +1,7 @@
 import moment from 'moment'
 import MsgBox from './msgbox/index.js'
 import SvgIcon from './svg-icon/index.js'
+import Messenger from './cross-iframe-messenger/index.js'
 import {
   locale,
   Loading,
@@ -30,8 +31,22 @@ import {
   Col,
   Tooltip,
   Select,
+  Cascader,
   Option,
-  Card
+  Card,
+  Menu,
+  MenuItem,
+  Submenu,
+  Scrollbar,
+  Breadcrumb,
+  BreadcrumbItem,
+  Dropdown,
+  DropdownItem,
+  DropdownMenu,
+  Tabs,
+  TabPane,
+  Tree,
+  Message
 } from 'element-ui'
 import Icons from './icons/index.js'
 const components = [
@@ -56,7 +71,13 @@ const elcomponents = [
   Table,
   Row,
   Dialog,
-  Card
+  Card,
+  Menu,
+  Scrollbar,
+  Breadcrumb,
+  Dropdown,
+  Tabs,
+  Tree
 ]
 
 const elcomponentsin = [
@@ -67,7 +88,13 @@ const elcomponentsin = [
   FormItem,
   TableColumn,
   Col,
-  Tooltip
+  Tooltip,
+  MenuItem,
+  Submenu,
+  BreadcrumbItem,
+  DropdownItem,
+  DropdownMenu,
+  TabPane
 ]
 const install = function (Vue, opts = {}) {
   const requireAll = requireContext => requireContext.keys().map(requireContext)
@@ -77,12 +104,18 @@ const install = function (Vue, opts = {}) {
   require('./styles/index.scss')
   Vue.use(Loading.directive)
   Vue.prototype.$loading = Loading.service
+  Vue.prototype.$message = Message
   Vue.component('ii-select-org', {
     render () { return <div class='ii-select-org'>{this.$options.extends.render.apply(this, [this.$createElement])}</div> },
     extends: Select
   })
   Vue.component('ii-option-org', Option)
+  Vue.component('ii-cascader-org', {
+    render () { return <div class='ii-cascader-org'>{this.$options.extends.render.apply(this, [this.$createElement])}</div> },
+    extends: Cascader
+  })
   Vue.use(MsgBox)
+  Vue.use(Messenger)
   components.forEach(component => {
     Vue.component(component.name, component)
   })
@@ -110,6 +143,9 @@ const install = function (Vue, opts = {}) {
             break
           case 'DatePicker':
             renderclass = 'ii-date-picker'
+            break
+          case 'DropdownMenu':
+            renderclass = 'ii-dropdown-menu'
             break
           default:
             renderclass = 'ii-' + componentname.toLowerCase()
@@ -149,5 +185,6 @@ export default {
   i18n: locale.i18n,
   install,
   MsgBox,
-  SvgIcon
+  SvgIcon,
+  Messenger
 }

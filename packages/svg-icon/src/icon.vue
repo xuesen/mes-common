@@ -1,5 +1,5 @@
 <template>
-   <svg class="gf-icon" version="1.1" :width="currentSize.width" :height="currentSize.height" :viewBox="box">
+   <svg class="ii-svg-icon" version="1.1" :width="currentSize.width" :height="currentSize.height" :viewBox="box">
     <use :xlink:href="icon.id" />
   </svg>
 </template>
@@ -115,10 +115,4 @@ export default {
 </script>
 
 <style lang="scss" scoped="" type="text/css">
-  .gf-icon {
-    display: inline-block;
-    color: inherit;
-    fill: currentColor;
-    /* color: black; */
-  }
 </style>

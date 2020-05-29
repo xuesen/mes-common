@@ -20,24 +20,25 @@ module.exports = {
       .options({
         symbolId: 'icon-[name]'
       })
+
+    config.module
+      .rule('fonts')
+      .test(/\.(eot|ttf|otf|woff|woff2?)(\?.*)?$/)
+      .use('url-loader')
+      .loader('url-loader')
+      .tap(options => Object.assign(options, {
+        limit: 1024000
+      }))
   },
 
   // configureWebpack: {
   //   externals: {
   //     vue: 'Vue',
-  //     axios: 'axios',
   //     'element-ui': 'ElementUI',
-  //     'vue-i18n': 'VueI18n',
   //     'vue-class-component': 'vue-class-component',
   //     'vue-property-decorator': 'vue-property-decorator',
-  //     'vue-router': 'VueRouter',
   //     vuex: 'Vuex',
-  //     'file-saver': 'saveAs',
-  //     jquery: '$',
-  //     lodash: '_',
-  //     moment: 'moment',
-  //     vuedraggable: 'vuedraggable',
-  //     xlsx: '^0.15.6'
+  //     moment: 'moment'
   //   }
   // },
   // pages:{ type:Object,Default:undfind }
@@ -51,7 +52,7 @@ module.exports = {
   pages: {
     index: {
       // entry for the page
-      entry: 'examples/main.js',
+      entry: 'examples/main.ts',
       // the source template
       template: 'public/index.html',
       // output as dist/index.html
@@ -76,23 +77,7 @@ module.exports = {
     port: 8090, // 端口号
     host: 'localhost',
     https: false, // https:{type:Boolean}
-    open: true, // 配置自动启动浏览器
+    open: true // 配置自动启动浏览器
     // proxy: 'http://localhost:4000' // 配置跨域处理,只有一个代理
-    proxy: {
-      '/datacenterservice': {
-        target: 'http://10.190.80.224:3000',
-        changeOrigin: true,
-        pathRewrite: {
-          '^/datacenterservice': ''
-        }
-      },
-      '/dataimportservice': {
-        target: 'http://10.190.80.224:3001',
-        changeOrigin: true,
-        pathRewrite: {
-          '^/dataimportservice': ''
-        }
-      }
-    }
   }
 }

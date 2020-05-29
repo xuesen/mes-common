@@ -1,5 +1,6 @@
 <template>
   <ii-dialog
+    top="0vh"
     class="ii-message-box"
     :title="gettitle()"
     :show-close="false"
