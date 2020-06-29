@@ -23,7 +23,7 @@ module.exports = {
 
     config.module
       .rule('fonts')
-      .test(/\.(eot|ttf|otf|woff|woff2?)(\?.*)?$/)
+      .test(/\.(code|eot|ttf|otf|woff|woff2?)(\?.*)?$/)
       .use('url-loader')
       .loader('url-loader')
       .tap(options => Object.assign(options, {
@@ -48,7 +48,15 @@ module.exports = {
 的字符串，
 注意：请保证pages里配置的路径和文件名 在你的文档目录都存在 否则启动服务会报错的
 */
-  css: { extract: false },
+  css: {
+    extract: false,
+    sourceMap: true,
+    loaderOptions: {
+      sass: {
+        sourceMap: true
+      }
+    }
+  },
   pages: {
     index: {
       // entry for the page

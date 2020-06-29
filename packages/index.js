@@ -2,6 +2,7 @@ import moment from 'moment'
 import MsgBox from './msgbox/index.js'
 import SvgIcon from './svg-icon/index.js'
 import Messenger from './cross-iframe-messenger/index.js'
+import CodeView from './code-view/index.js'
 import {
   locale,
   Loading,
@@ -11,6 +12,7 @@ import {
   Button,
   RadioGroup,
   Radio,
+  RadioButton,
   CheckboxGroup,
   Checkbox,
   InputNumber,
@@ -46,11 +48,19 @@ import {
   Tabs,
   TabPane,
   Tree,
-  Message
+  Message,
+  Collapse,
+  CollapseItem,
+  Divider,
+  Link,
+  Image,
+  Popover,
+  Tag
 } from 'element-ui'
 import Icons from './icons/index.js'
 const components = [
-  SvgIcon
+  SvgIcon,
+  CodeView
 ]
 
 const elcomponents = [
@@ -58,15 +68,10 @@ const elcomponents = [
   Input,
   ButtonGroup,
   Button,
-  RadioGroup,
-  Radio,
   CheckboxGroup,
   Checkbox,
   InputNumber,
   Switch,
-  TimeSelect,
-  DatePicker,
-  Upload,
   Form,
   Table,
   Row,
@@ -77,7 +82,11 @@ const elcomponents = [
   Breadcrumb,
   Dropdown,
   Tabs,
-  Tree
+  Tree,
+  Collapse,
+  TimeSelect,
+  DatePicker,
+  Tag
 ]
 
 const elcomponentsin = [
@@ -94,7 +103,14 @@ const elcomponentsin = [
   BreadcrumbItem,
   DropdownItem,
   DropdownMenu,
-  TabPane
+  TabPane,
+  CollapseItem,
+  Divider,
+  Radio,
+  RadioButton,
+  Link,
+  Image,
+  Popover
 ]
 const install = function (Vue, opts = {}) {
   const requireAll = requireContext => requireContext.keys().map(requireContext)
@@ -109,10 +125,22 @@ const install = function (Vue, opts = {}) {
     render () { return <div class='ii-select-org'>{this.$options.extends.render.apply(this, [this.$createElement])}</div> },
     extends: Select
   })
+  Vue.component('ii-scrollbar-org', Scrollbar)
+  Vue.component('ii-menu-org', Menu)
+  Vue.component('ElTag', Tag)
+  Vue.component('el-tag', Tag)
   Vue.component('ii-option-org', Option)
   Vue.component('ii-cascader-org', {
     render () { return <div class='ii-cascader-org'>{this.$options.extends.render.apply(this, [this.$createElement])}</div> },
     extends: Cascader
+  })
+  Vue.component('ii-radio-group-org', {
+    render () { return <div class='ii-radio-group-org'>{this.$options.extends.render.apply(this, [this.$createElement])}</div> },
+    extends: RadioGroup
+  })
+  Vue.component('ii-upload-org', {
+    render () { return <div class='ii-upload-org'>{this.$options.extends.render.apply(this, [this.$createElement])}</div> },
+    extends: Upload
   })
   Vue.use(MsgBox)
   Vue.use(Messenger)
@@ -123,7 +151,12 @@ const install = function (Vue, opts = {}) {
     let componentname = component.name.substr(2)
     Vue.component('Ii' + componentname, {
       render () {
-        let superRendered = this.$options.extends.render.apply(this, [this.$createElement])
+        let superRendered
+        if (componentname === 'DatePicker') {
+          superRendered = this.$options.extends.mixins[0].render.apply(this, [this.$createElement])
+        } else {
+          superRendered = this.$options.extends.render.apply(this, [this.$createElement])
+        }
         let renderclass
         switch (componentname) {
           case 'ButtonGroup':

@@ -1,0 +1,15 @@
+<template>
+  <ii-button @click="show_error">错误</ii-button>
+</template>
+<script>
+export default {
+  methods: {
+    async show_error () {
+      try {
+        await this.$ii_message('error', '错误信息')
+      } catch (e) {
+      }
+    }
+  }
+}
+</script>

@@ -1,6 +1,6 @@
 {
   "name": "mes-common",
-  "version": "1.2.11",
+  "version": "1.3.2",
   "description": "mes组件和工具库",
   "author": "itc070024",
   "scripts": {
@@ -9,17 +9,18 @@
     "lint": "vue-cli-service lint --fix",
     "lib": "vue-cli-service build --target lib --name ii-element-ui --dest lib packages/index.js"
   },
-  "sideEffects": false,
   "main": "lib/ii-element-ui.common.js",
   "dependencies": {
     "core-js": "^3.6.4",
+    "element-ui": "^2.8.2",
+    "js-base64": "^2.5.2",
+    "moment": "^2.24.0",
     "register-service-worker": "^1.7.1",
     "vue": "^2.6.11",
-    "element-ui": "^2.8.2",
     "vue-class-component": "^7.2.3",
+    "vue-codemirror": "^4.0.6",
     "vue-property-decorator": "^8.4.1",
-    "vuex": "^3.1.3",
-    "moment": "^2.24.0"
+    "vuex": "^3.1.3"
   },
   "devDependencies": {
     "@typescript-eslint/eslint-plugin": "^2.26.0",

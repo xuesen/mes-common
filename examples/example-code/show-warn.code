@@ -1,0 +1,15 @@
+<template>
+  <ii-button @click="show_warn">警告</ii-button>
+</template>
+<script>
+export default {
+  methods: {
+    async show_warn () {
+      try {
+        await this.$ii_message('warn', '警报')
+      } catch (e) {
+      }
+    }
+  }
+}
+</script>

@@ -1,0 +1,3 @@
+<template>
+  <ii-svg-icon :width="24" :height="24" :name="iconname" />
+</template>

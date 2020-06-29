@@ -35,6 +35,7 @@
     "packages/**/*.vue"
   ],
   "exclude": [
-    "node_modules"
+    "node_modules",
+    "examples/example-code"
   ]
 }

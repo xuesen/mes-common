@@ -1,0 +1,16 @@
+<template>
+  <ii-button @click="show_confirm">确认</ii-button>
+</template>
+<script>
+export default {
+  methods: {
+    async show_confirm () {
+      try {
+        await this.$ii_message('confirm', 'Are you sure?')
+        alert('sure!')
+      } catch (e) {
+        alert('cancel!')
+      }
+    }
+}
+</script>

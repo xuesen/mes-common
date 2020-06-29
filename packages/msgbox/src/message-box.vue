@@ -11,7 +11,7 @@
     :close-on-press-escape = "false"
     :custom-class ="getclass()"
     center>
-    <input style="width: 0px;height: 0px;border: none;" ref="definput"/>
+    <input style="width: 0px;height: 0px;border: none; padding: 0px; margin: 0px;" ref="definput"/>
     <div v-cloak v-html="tip"></div>
     <span slot="footer" class="dialog-footer">
       <ii-button v-if="type === 'confirm'" @click="handleAction('no')">取 消</ii-button>
