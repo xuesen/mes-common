@@ -3,6 +3,13 @@ import MsgBox from './msgbox/index.js'
 import SvgIcon from './svg-icon/index.js'
 import Messenger from './cross-iframe-messenger/index.js'
 import CodeView from './code-view/index.js'
+import IiCascader from './cascader/index.js'
+import IiKeyboardInput from './keyboard-input/index.js'
+import IiQuickInput from './quick-input/index.js'
+import IiRadioGroup from './radio-group/index.js'
+import IiSingleSelect from './single-select/index.js'
+import IiUpload from './upload/index.js'
+import IiPanel from './panel/index.js'
 import {
   locale,
   Loading,
@@ -144,6 +151,13 @@ const install = function (Vue, opts = {}) {
   })
   Vue.use(MsgBox)
   Vue.use(Messenger)
+  Vue.use(IiCascader)
+  Vue.use(IiKeyboardInput)
+  Vue.use(IiQuickInput)
+  Vue.use(IiRadioGroup)
+  Vue.use(IiSingleSelect)
+  Vue.use(IiUpload)
+  Vue.use(IiPanel)
   components.forEach(component => {
     Vue.component(component.name, component)
   })
