@@ -65,7 +65,7 @@ import {
   Tag,
   Steps,
   Step
-} from 'element-ui'
+} from 'element-ui-itc'
 import Icons from './icons/index.js'
 const components = [
   SvgIcon,
@@ -127,7 +127,7 @@ const install = function (Vue, opts = {}) {
   const requireAll = requireContext => requireContext.keys().map(requireContext)
   // const req = require.context('./svg', true, /\.svg$/)
   requireAll(Icons)
-  require('element-ui/lib/theme-chalk/index.css')
+  require('element-ui-itc/lib/theme-chalk/index.css')
   require('./styles/index.scss')
   Vue.use(Loading.directive)
   Vue.prototype.$loading = Loading.service
