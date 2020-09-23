@@ -62,7 +62,9 @@ import {
   Link,
   Image,
   Popover,
-  Tag
+  Tag,
+  Steps,
+  Step
 } from 'element-ui'
 import Icons from './icons/index.js'
 const components = [
@@ -117,7 +119,9 @@ const elcomponentsin = [
   RadioButton,
   Link,
   Image,
-  Popover
+  Popover,
+  Steps,
+  Step
 ]
 const install = function (Vue, opts = {}) {
   const requireAll = requireContext => requireContext.keys().map(requireContext)

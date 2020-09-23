@@ -2,6 +2,7 @@
   <ii-upload-org
     ref="upload"
     :multiple="initOptions ? initOptions.multiple : multiple"
+    :limit="limit"
     :data="initOptions ? initOptions.file_metadata : fileMetadata"
     :accept="initOptions ? initOptions.accept : accept"
     :action="upload_action"
@@ -42,6 +43,7 @@ export default {
   props: {
     action: String,
     initOptions: Object,
+    limit: Number,
     accept: String,
     fileMetadata: Object,
     multiple: Boolean,
