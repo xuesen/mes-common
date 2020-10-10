@@ -71,7 +71,8 @@ export default {
         if (this.label_field.indexOf('+') >= 0) {
           let array = []
           array = this.label_field.split('+')
-          return item[array[0]] + '-' + item[array[1]]
+          // return item[array[0]] + '-' + item[array[1]]
+          return '(' + item[array[0]] + ')' + item[array[1]]
         } else {
           return item[this.label_field]
         }
