@@ -69,9 +69,18 @@ export default {
       }
       let result = await this.$axios(query_source.api_path, query_source.req_type, params)
       _.each(result.data, (option) => {
-        let child = val.length === this.initOptions.data_source.length - 1
-          ? {obj: option, label: query_source.label_field ? option[query_source.label_field] : option, value: query_source.value_field ? option[query_source.value_field] : option}
-          : {obj: option, label: query_source.label_field ? option[query_source.label_field] : option, value: query_source.value_field ? option[query_source.value_field] : option, children: []}
+        let child
+        if (query_source.label_field.indexOf('+') >= 0) {
+          let label_array = []
+          label_array = query_source.label_field.split('+')
+          child = val.length === this.initOptions.data_source.length - 1
+            ? {obj: option, label: query_source.label_field ? '(' + option[label_array[0]] + ')' + option[label_array[1]] : option, value: query_source.value_field ? option[query_source.value_field] : option}
+            : {obj: option, label: query_source.label_field ? '(' + option[label_array[0]] + ')' + option[label_array[1]] : option, value: query_source.value_field ? option[query_source.value_field] : option, children: []}
+        } else {
+          child = val.length === this.initOptions.data_source.length - 1
+            ? {obj: option, label: query_source.label_field ? option[query_source.label_field] : option, value: query_source.value_field ? option[query_source.value_field] : option}
+            : {obj: option, label: query_source.label_field ? option[query_source.label_field] : option, value: query_source.value_field ? option[query_source.value_field] : option, children: []}
+        }
         toPushChild.push(child)
       })
     },
@@ -137,7 +146,13 @@ export default {
     let result = await this.$axios(this.initOptions.data_source[0].api_path, this.initOptions.data_source[0].req_type, search_condition)
     this.select_items = _.map(result.data, (option) => {
       if (this.initOptions.data_source[0].label_field) {
-        return {obj: option, label: option[this.initOptions.data_source[0].label_field], value: option[this.initOptions.data_source[0].value_field], children: []}
+        if (this.initOptions.data_source[0].label_field.indexOf('+') >= 0) {
+          let label_array = []
+          label_array = this.initOptions.data_source[0].label_field.split('+')
+          return {obj: option, label: '(' + option[label_array[0]] + ')' + option[label_array[1]], value: option[this.initOptions.data_source[0].value_field], children: []}
+        } else {
+          return {obj: option, label: option[this.initOptions.data_source[0].label_field], value: option[this.initOptions.data_source[0].value_field], children: []}
+        }
       } else {
         return {obj: option, label: option, value: option, children: []}
       }
