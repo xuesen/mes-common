@@ -1,7 +1,16 @@
 /* eslint-disable @typescript-eslint/no-var-requires */
 <template>
   <div class="app" id="app" style="padding: 20px;">
-    <ii-date-picker></ii-date-picker>
+    <ii-upload
+      accept="jpg,png,jpeg"
+      :file-metadata="file_metadata"
+      :before-upload="before_upload"
+      :file-list.sync="file_list"
+      :list-type="list_type"
+      :limit="1"
+      :multiple="false"
+      :support-picture-paste="true">
+    </ii-upload>
     <ii-collapse v-model="activeNames" accordion>
       <ii-collapse-item title="过滤器" name="1">
         <ii-row>
@@ -67,10 +76,17 @@ export default {
       show_confirm_code: Codes('./show-confirm.code'),
       icon_code: Codes('./icon.code'),
       filter_code: Codes('./filter.code'),
-      icons: Icons.keys()
+      icons: Icons.keys(),
+      file_list: [],
+      file_metadata: {appName: 'test', module: 'demo-pic-upload'},
+      list_type: 'text' // text/picture/picture-card
     }
   },
   methods: {
+    before_upload (file) {
+      console.log(file)
+      return true
+    },
     async show_error () {
       try {
         await this.$ii_message('error', '错误信息')

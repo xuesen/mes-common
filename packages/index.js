@@ -2,6 +2,7 @@ import moment from 'moment'
 import MsgBox from './msgbox/index.js'
 import SvgIcon from './svg-icon/index.js'
 import Messenger from './cross-iframe-messenger/index.js'
+import MessagesBase from './i18n/index.js'
 import CodeView from './code-view/index.js'
 import IiCascader from './cascader/index.js'
 import IiKeyboardInput from './keyboard-input/index.js'
@@ -234,6 +235,7 @@ export default {
   version: '2.13.0',
   locale: locale.use,
   i18n: locale.i18n,
+  MessagesBase,
   install,
   MsgBox,
   SvgIcon,

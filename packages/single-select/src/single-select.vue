@@ -35,6 +35,10 @@ export default {
     clearable: {
       type: Boolean,
       default: true
+    },
+    defaultSelectFirst: {
+      type: Boolean,
+      default: false
     }
   },
   data () {
@@ -43,7 +47,8 @@ export default {
       selected_value: this.value,
       label_field: undefined,
       value_field: undefined,
-      allow_create: undefined
+      allow_create: undefined,
+      default_select_first: undefined
     }
   },
   beforeCreate () {
@@ -52,6 +57,7 @@ export default {
     this.label_field = this.initOptions && this.initOptions.label_field ? this.initOptions.label_field : this.labelField
     this.value_field = this.initOptions && this.initOptions.value_field ? this.initOptions.value_field : this.valueField
     this.allow_create = this.initOptions && this.initOptions.allow_create ? this.initOptions.allow_create : this.allowCreate
+    this.default_select_first = this.initOptions && this.initOptions.default_select_first ? this.initOptions.default_select_first : this.defaultSelectFirst
 },
   beforeMount () {
   },
@@ -67,7 +73,7 @@ export default {
           })
         }
       }
-      this.$emit('update:valueObj', _.clone(selectedObj))
+      this.$emit('update:valueObj', _.cloneDeep(selectedObj))
       if (this.value_field) {
         this.$emit('input', selectedObj ? selectedObj[this.value_field] : undefined)
       } else {
@@ -105,16 +111,23 @@ export default {
         }
       }
       this.select_items = result.data
+      if (this.default_select_first) {
+        this.selected_value = this.select_items[0][this.value_field]
+      }
     },
     async_parent () {
       let selectedObj = {}
-      if (this.select_items.length > 0) {
-        selectedObj = _.clone(this.select_items[0])
-        _.each(_.keys(selectedObj), (item_key) => {
-          selectedObj[item_key] = null
-        })
+      if (this.select_items && this.select_items.length > 0) {
+        if (this.value_field) {
+          selectedObj = _.clone(this.select_items[0])
+          _.each(_.keys(selectedObj), (item_key) => {
+            selectedObj[item_key] = null
+          })
+        } else {
+          selectedObj = null
+        }
       }
-      this.$emit('update:valueObj', selectedObj)
+      this.$emit('update:valueObj', _.cloneDeep(selectedObj))
       this.$emit('input', null)
       this.$emit('change', null)
     }
@@ -133,6 +146,8 @@ export default {
     }
     if (this.selected_value) {
       this.selectChange(this.selected_value)
+    } else if (this.default_select_first) {
+      this.selected_value = this.select_items[0][this.value_field]
     }
   },
   watch: {
