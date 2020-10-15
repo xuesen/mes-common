@@ -58,6 +58,15 @@ export default {
   methods: {
     selectChange (selected) {
       let selectedObj = _.find(this.select_items, (item) => { return (this.value_field ? item[this.value_field] : item) === selected })
+      if (!selectedObj) {
+        selectedObj = {}
+        if (this.select_items.length > 0) {
+          selectedObj = _.clone(this.select_items[0])
+          _.each(_.keys(selectedObj), (item_key) => {
+            selectedObj[item_key] = null
+          })
+        }
+      }
       this.$emit('update:valueObj', selectedObj)
       if (this.value_field) {
         this.$emit('input', selectedObj ? selectedObj[this.value_field] : undefined)
