@@ -67,7 +67,7 @@ export default {
           })
         }
       }
-      this.$emit('update:valueObj', selectedObj)
+      this.$emit('update:valueObj', _.clone(selectedObj))
       if (this.value_field) {
         this.$emit('input', selectedObj ? selectedObj[this.value_field] : undefined)
       } else {
