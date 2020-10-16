@@ -13,18 +13,18 @@
     :on-remove="remove_file"
     :on-success="upload_success"
     :on-error="upload_error"
-    :disabled="disabled || (limit && limit === file_list.length)">
+    :disabled="disabled">
     <slot v-if="$slots.trigger" name="trigger" slot="trigger"></slot>
     <ii-button-group v-if="!$slots.trigger && (initOptions ? initOptions.list_type : listType) !== 'picture-card'" slot="trigger">
       <ii-tooltip :content='$t("button.upload")' placement="top-start">
-        <ii-button :disabled="disabled"><ii-svg-icon :width="24" :height="24" name="btnicon/upload"></ii-svg-icon></ii-button>
+        <ii-button :disabled="disabled || (limit && limit === file_list.length)"><ii-svg-icon :width="24" :height="24" name="btnicon/upload"></ii-svg-icon></ii-button>
       </ii-tooltip>
       <ii-tooltip v-if="supportPicturePaste" :content='$t("button.upload_from_paste")' placement="top-start">
-        <ii-button :disabled="disabled" @click.stop="open_paste_dialog"><ii-svg-icon :width="24" :height="24" name="btnicon/paste"></ii-svg-icon></ii-button>
+        <ii-button :disabled="disabled || (limit && limit === file_list.length)" @click.stop="open_paste_dialog"><ii-svg-icon :size="24" name="btnicon/paste"></ii-svg-icon></ii-button>
       </ii-tooltip>
     </ii-button-group>
-    <ii-button :disabled="disabled" v-if="!$slots.trigger && (initOptions ? initOptions.list_type : listType) === 'picture-card'" slot="trigger" size="small"><ii-svg-icon width="32" height="32" name="btnicon/add"></ii-svg-icon></ii-button>
-    <ii-button :disabled="disabled" v-if="supportPicturePaste && !$slots.trigger && (initOptions ? initOptions.list_type : listType) === 'picture-card'" @click.stop="open_paste_dialog" size="small"><ii-svg-icon width="32" height="32" name="btnicon/paste"></ii-svg-icon></ii-button>
+    <ii-button :disabled="disabled || (limit && limit === file_list.length)" v-if="!$slots.trigger && (initOptions ? initOptions.list_type : listType) === 'picture-card'" slot="trigger" size="small"><ii-svg-icon width="32" height="32" name="btnicon/add"></ii-svg-icon></ii-button>
+    <ii-button class="el-upload el-upload--picture-card" style="" :disabled="disabled || (limit && limit === file_list.length)" v-if="supportPicturePaste && !$slots.trigger && (initOptions ? initOptions.list_type : listType) === 'picture-card'" @click.stop="open_paste_dialog" size="small"><ii-svg-icon size="32" name="btnicon/paste"></ii-svg-icon></ii-button>
     <ii-dialog
       @paste.native="get_paste_file"
       :title="$t('dialog.paste_title')"
@@ -34,8 +34,8 @@
       <ii-image v-if="paste_dialog.url" :src="paste_dialog.url" fit="fill"></ii-image>
       <ii-input v-else ref="paste_dialog_paste_area" type="textarea" resize="none" :rows="4" :value="$t('msg.paste_dialog.please_paste')" :readonly="true"/>
       <span slot="footer" class="dialog-footer">
-        <ii-button @click="paste_dialog_clear">{{ $t('button.clear') }}</ii-button>
-        <ii-button @click="handle_paste_dialog_ok">{{ $t('button.confirm') }}</ii-button>
+        <ii-button type="text" @click="paste_dialog_clear">{{ $t('button.clear') }}</ii-button>
+        <ii-button type="primary" @click="handle_paste_dialog_ok">{{ $t('button.confirm') }}</ii-button>
       </span>
     </ii-dialog>
   </ii-upload-org>
