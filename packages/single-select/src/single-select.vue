@@ -58,7 +58,7 @@ export default {
     this.value_field = this.initOptions && this.initOptions.value_field ? this.initOptions.value_field : this.valueField
     this.allow_create = this.initOptions && this.initOptions.allow_create ? this.initOptions.allow_create : this.allowCreate
     this.default_select_first = this.initOptions && this.initOptions.default_select_first ? this.initOptions.default_select_first : this.defaultSelectFirst
-},
+  },
   beforeMount () {
   },
   methods: {
@@ -68,9 +68,11 @@ export default {
         selectedObj = {}
         if (this.select_items.length > 0) {
           selectedObj = _.clone(this.select_items[0])
-          _.each(_.keys(selectedObj), (item_key) => {
-            selectedObj[item_key] = null
-          })
+          if (this.value_field) {
+            _.each(_.keys(selectedObj), (item_key) => {
+              selectedObj[item_key] = null
+            })
+          }
         }
       }
       this.$emit('update:valueObj', _.cloneDeep(selectedObj))
@@ -104,13 +106,13 @@ export default {
       if (!this.initOptions.params) this.initOptions.params = {}
       this.initOptions.params[key] = value
       if (this.initOptions.refresh_options) {
-        this.select_items = this.initOptions.refresh_options(this.initOptions.params)
+        this.select_items = this.initOptions.refresh_options(this.initOptions.params) || []
       } else {
         if (!this.initOptions.lazyLoad) {
           result = await this.$axios(this.initOptions.api_path, this.initOptions.req_type, this.initOptions.params)
         }
       }
-      this.select_items = result.data
+      this.select_items = result.data || []
       if (this.default_select_first) {
         this.selected_value = this.select_items[0][this.value_field]
       }
@@ -140,9 +142,9 @@ export default {
       } else {
         result = await this.$maintain_service_agent(this.initOptions.entity, 'findEnabled', 'post', this.initOptions.condition)
       }
-      this.select_items = result.data
+      this.select_items = result.data || []
     } else {
-      this.select_items = this.options || this.initOptions.options
+      this.select_items = this.options || this.initOptions.options || []
     }
     if (this.selected_value) {
       this.selectChange(this.selected_value)
@@ -152,8 +154,10 @@ export default {
   },
   watch: {
     'value' (val) {
-      this.selected_value = val
-      this.selectChange(val)
+      if (this.selected_value !== val) {
+        this.selected_value = val
+        this.selectChange(val)
+      }
     },
     'options' (val) {
       this.select_items = val
