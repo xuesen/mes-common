@@ -79,6 +79,9 @@
               font-weight: 500;
               color: #fff;
               line-height: 0.05;
+              span {
+                color: #fff;
+              }
             }
             &+.ii-button {
               margin-left: 10px;
