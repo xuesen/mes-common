@@ -9,6 +9,7 @@ import IiKeyboardInput from './keyboard-input/index.js'
 import IiQuickInput from './quick-input/index.js'
 import IiRadioGroup from './radio-group/index.js'
 import IiSingleSelect from './single-select/index.js'
+import IiMultiSelect from './multi-select/index.js'
 import IiUpload from './upload/index.js'
 import IiPanel from './panel/index.js'
 import {
@@ -161,6 +162,7 @@ const install = function (Vue, opts = {}) {
   Vue.use(IiQuickInput)
   Vue.use(IiRadioGroup)
   Vue.use(IiSingleSelect)
+  Vue.use(IiMultiSelect)
   Vue.use(IiUpload)
   Vue.use(IiPanel)
   components.forEach(component => {
