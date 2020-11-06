@@ -1,6 +1,6 @@
 <template>
 <div class="ii-select">
-  <ii-select-org v-model="selected_value" multiple :placeholder="placeholder ? placeholder : $t('placeholder.select')" :disabled="disabled" autocomplete="on" :filterable="true" :allow-create="allow_create" @clear="$emit('clear')" :clearable="clearable" @change="selectChange">
+  <ii-select-org v-model="selected_value" multiple v-loading="loading" :placeholder="placeholder ? placeholder : $t('placeholder.select')" :disabled="disabled" autocomplete="on" :filterable="true" :allow-create="allow_create" @clear="$emit('clear')" :clearable="clearable" @change="selectChange">
     <ii-option-org
       v-for="item in select_items"
       :key="value_field ? item[value_field] : item"
@@ -45,7 +45,8 @@ export default {
       label_field: undefined,
       value_field: undefined,
       allow_create: undefined,
-      default_select_first: undefined
+      default_select_first: undefined,
+      loading: false
     }
   },
   beforeCreate () {
@@ -96,13 +97,15 @@ export default {
       }
       if (!this.initOptions.params) this.initOptions.params = {}
       this.initOptions.params[key] = value
+      this.loading = true
       if (this.initOptions.refresh_options) {
-        this.select_items = this.initOptions.refresh_options(this.initOptions.params)
+        this.select_items = await this.initOptions.refresh_options(this.initOptions.params)
       } else {
         if (!this.initOptions.lazyLoad) {
           result = await this.$axios(this.initOptions.api_path, this.initOptions.req_type, this.initOptions.params)
         }
       }
+      this.loading = false
       this.select_items = result.data
       if (this.default_select_first) {
         this.selected_value = this.select_items[0][this.value_field]
@@ -117,11 +120,13 @@ export default {
   async mounted () {
     if (!this.lazyLoad && (!this.initOptions || !this.initOptions.lazyLoad)) {
       let result
+      this.loading = true
       if (this.initOptions.api_path) {
         result = await this.$axios(this.initOptions.api_path, this.initOptions.req_type, this.initOptions.params)
       } else {
         result = await this.$maintain_service_agent(this.initOptions.entity, 'findEnabled', 'post', this.initOptions.condition)
       }
+      this.loading = false
       this.select_items = result.data
     } else {
       this.select_items = this.options || this.initOptions.options
