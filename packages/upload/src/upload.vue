@@ -19,12 +19,12 @@
       <ii-tooltip :content='$t("button.upload")' placement="top-start">
         <ii-button :disabled="disabled || (limit && limit === file_list.length)"><ii-svg-icon :width="24" :height="24" name="btnicon/upload"></ii-svg-icon></ii-button>
       </ii-tooltip>
-      <ii-tooltip v-if="supportPicturePaste" :content='$t("button.upload_from_paste")' placement="top-start">
+      <ii-tooltip v-if="support_picture_paste_in" :content='$t("button.upload_from_paste")' placement="top-start">
         <ii-button :disabled="disabled || (limit && limit === file_list.length)" @click.stop="open_paste_dialog"><ii-svg-icon :size="24" name="btnicon/paste"></ii-svg-icon></ii-button>
       </ii-tooltip>
     </ii-button-group>
     <ii-button :disabled="disabled || (limit && limit === file_list.length)" v-if="!$slots.trigger && (initOptions ? initOptions.list_type : listType) === 'picture-card'" slot="trigger" size="small"><ii-svg-icon width="32" height="32" name="btnicon/add"></ii-svg-icon></ii-button>
-    <ii-button class="el-upload el-upload--picture-card" style="" :disabled="disabled || (limit && limit === file_list.length)" v-if="supportPicturePaste && !$slots.trigger && (initOptions ? initOptions.list_type : listType) === 'picture-card'" @click.stop="open_paste_dialog" size="small"><ii-svg-icon size="32" name="btnicon/paste"></ii-svg-icon></ii-button>
+    <ii-button class="el-upload el-upload--picture-card" style="" :disabled="disabled || (limit && limit === file_list.length)" v-if="support_picture_paste_in && !$slots.trigger && (initOptions ? initOptions.list_type : listType) === 'picture-card'" @click.stop="open_paste_dialog" size="small"><ii-svg-icon size="32" name="btnicon/paste"></ii-svg-icon></ii-button>
     <ii-dialog
       @paste.native="get_paste_file"
       :title="$t('dialog.paste_title')"
@@ -101,6 +101,7 @@ export default {
   data () {
     return {
       upload_action: this.action || './storageservice/api/asset',
+      support_picture_paste_in: false,
       file_list: [],
       self_updating: false,
       paste_dialog: {
@@ -187,6 +188,7 @@ export default {
     }
   },
   mounted () {
+    this.support_picture_paste_in = this.initOptions.supportPicturePaste || this.supportPicturePaste
     this.init_file_list(this.fileList)
   },
   watch: {
