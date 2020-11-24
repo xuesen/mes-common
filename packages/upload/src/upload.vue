@@ -188,7 +188,7 @@ export default {
     }
   },
   mounted () {
-    this.support_picture_paste_in = this.initOptions.supportPicturePaste || this.supportPicturePaste
+    this.support_picture_paste_in = (this.initOptions ? this.initOptions.supportPicturePaste : false) || this.supportPicturePaste
     this.init_file_list(this.fileList)
   },
   watch: {
