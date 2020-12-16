@@ -1,6 +1,7 @@
 /* eslint-disable @typescript-eslint/no-var-requires */
 <template>
   <div class="app" id="app" style="padding: 20px;">
+    <ii-select-org></ii-select-org>
     <ii-upload
       accept="jpg,png,jpeg"
       :file-metadata="file_metadata"
@@ -31,7 +32,7 @@
         </ii-row>
         <ii-row>
           <ii-col :span="24">
-            <ii-button @click="show_confirm">确认</ii-button>
+            <ii-button @click="show_confirm">{{this.$t('button.ok')}}</ii-button>
             <ii-divider content-position="left">代码</ii-divider>
             <ii-code-view :code="show_confirm_code"></ii-code-view>
           </ii-col>

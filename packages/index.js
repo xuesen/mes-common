@@ -12,8 +12,12 @@ import IiSingleSelect from './single-select/index.js'
 import IiMultiSelect from './multi-select/index.js'
 import IiUpload from './upload/index.js'
 import IiPanel from './panel/index.js'
+import en_locale from 'element-ui/lib/locale/lang/en'
+import cn_ocale from 'element-ui/lib/locale/lang/zh-CN'
+import tw_locale from 'element-ui/lib/locale/lang/zh-TW'
 import {
   locale,
+  i18n,
   Loading,
   Container,
   Input,
@@ -125,7 +129,10 @@ const elcomponentsin = [
   Steps,
   Step
 ]
+const locale_dic = {cn: cn_ocale, en: en_locale, tw: tw_locale}
 const install = function (Vue, opts = {}) {
+  locale(locale_dic[opts.locale])
+  i18n(opts.i18n)
   const requireAll = requireContext => requireContext.keys().map(requireContext)
   // const req = require.context('./svg', true, /\.svg$/)
   requireAll(Icons)
@@ -155,7 +162,7 @@ const install = function (Vue, opts = {}) {
     render () { return <div class='ii-upload-org'>{this.$options.extends.render.apply(this, [this.$createElement])}</div> },
     extends: Upload
   })
-  Vue.use(MsgBox)
+  Vue.use(MsgBox, {locale: opts.locale})
   Vue.use(Messenger)
   Vue.use(IiCascader)
   Vue.use(IiKeyboardInput)
@@ -235,8 +242,11 @@ if (typeof window !== 'undefined' && window.Vue) {
 
 export default {
   version: '2.13.0',
-  locale: locale.use,
-  i18n: locale.i18n,
+  locale: locale,
+  i18n: i18n,
+  en_locale: en_locale,
+  tw_locale: tw_locale,
+  cn_ocale: cn_ocale,
   MessagesBase,
   install,
   MsgBox,

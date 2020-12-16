@@ -1,6 +1,6 @@
 <template>
-  <ii-radio-group-org v-model="selected_value" :disabled="disabled" @change="selectChange">
-    <ii-radio v-for="item in select_items" :key="value_field ? item[value_field] : item" :label="value_field ? item[value_field] : item" border>{{ labels(item) }}</ii-radio>
+  <ii-radio-group-org class="ii-radio-group" v-model="selected_value" :disabled="disabled" @change="selectChange">
+    <ii-radio v-for="item in select_items" :disabled="disabled" :key="value_field ? item[value_field] : item" :label="value_field ? item[value_field] : item" :border='border'>{{ labels(item) }}</ii-radio>
   </ii-radio-group-org>
 </template>
 <script>
@@ -14,7 +14,11 @@ export default {
     labelField: String,
     lazyLoad: Boolean,
     options: Array,
-    disabled: Boolean
+    disabled: Boolean,
+    border: {
+      type: Boolean,
+      default: true
+    }
   },
   data () {
     return {
