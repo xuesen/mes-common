@@ -1,6 +1,6 @@
 <template>
 <div class="ii-select">
-  <ii-select-org v-model="selected_value" multiple v-loading="loading" :placeholder="placeholder ? placeholder : $t('placeholder.select')" :disabled="disabled" autocomplete="on" :filterable="true" :allow-create="allow_create" @clear="$emit('clear')" :clearable="clearable" @change="selectChange">
+  <ii-select-org :no-match-text="$t('select.no_match')" :no-data-text="$t('select.no_options')" v-model="selected_value" multiple v-loading="loading" :placeholder="placeholder || $t('el.select.placeholder')" :disabled="disabled" autocomplete="on" :filterable="true" :allow-create="allow_create" @clear="$emit('clear')" :clearable="clearable" @change="selectChange">
     <ii-option-org
       v-for="item in select_items"
       :key="value_field ? item[value_field] : item"
@@ -24,7 +24,10 @@ export default {
     lazyLoad: Boolean,
     options: Array,
     disabled: Boolean,
-    placeholder: String,
+    placeholder: {
+      type: String,
+      default: undefined
+    },
     allowCreate: {
       type: Boolean,
       default: false

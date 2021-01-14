@@ -1,5 +1,10 @@
 
-let locales = {
+import en_locale from 'element-ui/lib/locale/lang/en'
+import cn_locale from 'element-ui/lib/locale/lang/zh-CN'
+import tw_locale from 'element-ui/lib/locale/lang/zh-TW'
+import _ from 'lodash'
+let locales = {}
+_.merge(locales, {en: en_locale, cn: cn_locale, tw: tw_locale}, {
   en: {
     basic: {
     },
@@ -85,6 +90,10 @@ let locales = {
       paste_dialog: {
         please_paste: '请粘贴图片'
       }
+    },
+    select: {
+      no_match: 'No match data',
+      no_options: 'Empty'
     }
   },
   cn: {
@@ -172,7 +181,11 @@ let locales = {
       paste_dialog: {
         please_paste: '请粘贴图片'
       }
+    },
+    select: {
+      no_match: '没有匹配项',
+      no_options: '没有数据'
     }
   }
-}
+})
 export default locales

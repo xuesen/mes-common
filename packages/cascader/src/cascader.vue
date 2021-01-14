@@ -4,7 +4,7 @@
     :disabled="disabled"
     v-if="dataReady"
     v-model="selected_value"
-    :placeholder="placeholder ? placeholder :$t('placeholder.select')"
+    :placeholder="placeholder || $t('el.select.placeholder')"
     @active-item-change="handle_item_change"
     @change="select_change"
     :options="select_items"
@@ -26,7 +26,10 @@ export default {
     value: [Object, String, Number],
     valueObj: Object,
     disabled: Boolean,
-    placeholder: String
+    placeholder: {
+      type: String,
+      default: undefined
+    }
   },
   data () {
     return {
