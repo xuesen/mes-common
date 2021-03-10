@@ -4,7 +4,7 @@
     :disabled="disabled"
     v-if="dataReady"
     v-model="selected_value"
-    :placeholder="placeholder || $t('el.select.placeholder')"
+    :placeholder="placeholder"
     @active-item-change="handle_item_change"
     @change="select_change"
     :options="select_items"

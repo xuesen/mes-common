@@ -1,7 +1,7 @@
 <template>
   <ii-container :style="{height: height || '100%'}" direction="vertical" class="ii-panel">
-    <ii-header height="40px" v-if="title || $slots.title">
-      <slot name="title">
+    <ii-header :height="headerHeight || '40px'" v-if="title || $slots.title">
+      <slot name="title" class="title">
         <h2>{{title}}</h2>
       </slot>
     </ii-header>
@@ -15,7 +15,8 @@ export default {
   name: 'IiPanel',
   props: {
     title: String,
-    height: String
+    height: String,
+    headerHeight: String
   },
   data () {
     return {

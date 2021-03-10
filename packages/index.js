@@ -177,6 +177,15 @@ const install = function (Vue, opts = {}) {
   })
   elcomponents.forEach(component => {
     let componentname = component.name.substr(2)
+    if (componentname === 'Table') {
+      Vue.component('IiAutoHeightTable', {
+        render () {
+          let superRendered = this.$options.extends.render.apply(this, [this.$createElement])
+          return <div class={'ii-auto-height-table'}>{superRendered}</div>
+        },
+        extends: component
+      })
+    }
     Vue.component('Ii' + componentname, {
       render () {
         let superRendered
