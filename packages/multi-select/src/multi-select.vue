@@ -2,7 +2,7 @@
 <div class="ii-select">
   <ii-select-org v-model="selected_value" multiple v-loading="loading" :placeholder="placeholder" :disabled="disabled" autocomplete="on" :filterable="true" :allow-create="allow_create" @clear="$emit('clear')" :clearable="clearable" @change="selectChange">
     <ii-option-org
-      v-for="item in select_items"
+      v-for="item in ordered_options"
       :key="value_field ? item[value_field] : item"
       :label="labels(item)"
       :value="value_field ? item[value_field] : item"
@@ -136,6 +136,21 @@ export default {
     }
     if (this.default_select_first) {
       this.selected_value = this.select_items[0][this.value_field]
+    }
+  },
+  computed: {
+    ordered_options () {
+      if (this.label_field) {
+        if (this.label_field.indexOf('+') >= 0) {
+          let array = []
+          array = this.label_field.split('+')
+          return _.orderBy(this.select_items, [array[0], array[1]])
+        } else {
+          return _.orderBy(this.select_items, [this.label_field])
+        }
+      } else {
+        return _.sortedUniq(this.select_items)
+      }
     }
   },
   watch: {

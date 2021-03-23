@@ -71,7 +71,7 @@ export default {
         return
       }
       let result = await this.$axios(query_source.api_path, query_source.req_type, params)
-      _.each(result.data, (option) => {
+      _.each(this.ordered_options(result.data, query_source.label_field), (option) => {
         let child
         if (query_source.label_field.indexOf('+') >= 0) {
           let label_array = []
@@ -141,13 +141,26 @@ export default {
         }
         await this.handle_item_change(_.clone(loadPath))
       }
+    },
+    ordered_options (options, label_field) {
+      if (label_field) {
+        if (label_field.indexOf('+') >= 0) {
+          let array = []
+          array = label_field.split('+')
+          return _.orderBy(options, [array[0], array[1]])
+        } else {
+          return _.orderBy(options, [label_field])
+        }
+      } else {
+        return _.sortedUniq(options)
+      }
     }
   },
   async mounted () {
     this.select_items = []
     let search_condition = this.initOptions.data_source[0].params ? this.initOptions.data_source[0].params : {}
     let result = await this.$axios(this.initOptions.data_source[0].api_path, this.initOptions.data_source[0].req_type, search_condition)
-    this.select_items = _.map(result.data, (option) => {
+    this.select_items = _.map(this.ordered_options(result.data, this.initOptions.data_source[0].label_field), (option) => {
       if (this.initOptions.data_source[0].label_field) {
         if (this.initOptions.data_source[0].label_field.indexOf('+') >= 0) {
           let label_array = []
