@@ -58,12 +58,22 @@
         </ii-row>
       </ii-collapse-item>
     </ii-collapse>
+    <ii-button type="primary" @click="handle_minio_upload()">minio上传</ii-button>
   </div>
 </template>
 
 <script>
 import Codes from './example-code/index.js'
 import Icons from '../packages/icons/index.js'
+// import Minio from 'minio'
+let Minio = require('minio')
+var minioClient = new Minio.Client({
+    endPoint: '10.190.50.61',
+    port: 9001,
+    useSSL: false,
+    accessKey: 'admin',
+    secretKey: 'adminminio'
+})
 export default {
   name: 'App',
   components: {
@@ -71,7 +81,7 @@ export default {
   data () {
     return {
       islogined: undefined,
-      activeNames: ['1'],
+      activeNames: [],
       show_error_code: Codes('./show-error.code'),
       show_warn_code: Codes('./show-warn.code'),
       show_confirm_code: Codes('./show-confirm.code'),
@@ -84,6 +94,10 @@ export default {
     }
   },
   methods: {
+    async handle_minio_upload () {
+      
+      console.log(minioClient)
+    },
     before_upload (file) {
       console.log(file)
       return true
