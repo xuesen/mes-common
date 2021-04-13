@@ -29,6 +29,10 @@ export default {
     placeholder: {
       type: String,
       default: undefined
+    },
+    orderDisabled: {
+      type: Boolean,
+      default: false
     }
   },
   data () {
@@ -143,6 +147,9 @@ export default {
       }
     },
     ordered_options (options, label_field) {
+      if (this.orderDisabled || (this.initOptions && this.initOptions.order_disabled)) {
+        return
+      }
       if (label_field) {
         if (label_field.indexOf('+') >= 0) {
           let array = []

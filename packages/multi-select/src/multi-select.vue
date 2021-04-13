@@ -39,6 +39,14 @@ export default {
     defaultSelectFirst: {
       type: Boolean,
       default: false
+    },
+    orderBy: {
+      type: String,
+      default: ''
+    },
+    orderDisabled: {
+      type: Boolean,
+      default: false
     }
   },
   data () {
@@ -140,16 +148,23 @@ export default {
   },
   computed: {
     ordered_options () {
-      if (this.label_field) {
-        if (this.label_field.indexOf('+') >= 0) {
-          let array = []
-          array = this.label_field.split('+')
-          return _.orderBy(this.select_items, [array[0], array[1]])
-        } else {
-          return _.orderBy(this.select_items, [this.label_field])
-        }
+      if (this.orderDisabled || (this.initOptions && this.initOptions.order_disabled)) {
+        return this.select_items
+      }
+      if (this.orderBy || (this.initOptions && this.initOptions.order_by)) {
+        return _.orderBy(this.select_items, [this.orderBy || this.initOptions.order_by])
       } else {
-        return _.sortedUniq(this.select_items)
+        if (this.label_field) {
+          if (this.label_field.indexOf('+') >= 0) {
+            let array = []
+            array = this.label_field.split('+')
+            return _.orderBy(this.select_items, [array[0], array[1]])
+          } else {
+            return _.orderBy(this.select_items, [this.label_field])
+          }
+        } else {
+          return _.sortedUniq(this.select_items)
+        }
       }
     }
   },
