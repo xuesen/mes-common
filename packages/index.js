@@ -11,6 +11,7 @@ import IiRadioGroup from './radio-group/index.js'
 import IiSingleSelect from './single-select/index.js'
 import IiMultiSelect from './multi-select/index.js'
 import IiUpload from './upload/index.js'
+import IiUploadMinio from './upload-minio/index.js'
 import IiPanel from './panel/index.js'
 import en_locale from 'element-ui/lib/locale/lang/en'
 import cn_ocale from 'element-ui/lib/locale/lang/zh-CN'
@@ -73,6 +74,7 @@ import {
   Step
 } from 'element-ui'
 import Icons from './icons/index.js'
+import vueConfig from '../vue.config.js'
 const components = [
   SvgIcon,
   CodeView
@@ -171,6 +173,7 @@ const install = function (Vue, opts = {}) {
   Vue.use(IiSingleSelect)
   Vue.use(IiMultiSelect)
   Vue.use(IiUpload)
+  Vue.use(IiUploadMinio)
   Vue.use(IiPanel)
   components.forEach(component => {
     Vue.component(component.name, component)
