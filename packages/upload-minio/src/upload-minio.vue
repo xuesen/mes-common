@@ -102,9 +102,12 @@ export default {
       }
       // 验证存储桶是否存在
       let minioClient = this.handle_connect_minio()
-      minioClient.bucketExists(_this.bucket, function(err) {
+      minioClient.bucketExists(_this.bucket, async function(err) {
         if (err) {
-          if (err.code == 'NoSuchBucket') return console.log("bucket does not exist.")
+          if (err.code == 'NoSuchBucket') {
+            await _this.$ii_message('error', _this.bucket + 'not exist')
+            return console.log("bucket does not exist.")
+          }
           return console.log(err)
         }
         console.log('Bucket exists.')
@@ -120,7 +123,7 @@ export default {
           minioClient.putObject(_this.bucket, fileName, bufferStream, fileSize, metadata, async function(err, etag) {
             if (err) {
               _this.file_list.splice(_this.file_list.length - 1, 1)
-              await _this.$ii_message('error', fileName + '文件上传失败')
+              await _this.$ii_message('error', fileName + ':fail')
               return console.log(fileName + ":fail")
             }
             params.onSuccess({file: params.file, status: 'success'})
