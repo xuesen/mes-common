@@ -1,8 +1,8 @@
-import Upload from './src/upload-minio.vue'
+import UploadMinio from './src/upload-minio.vue'
 
 /* istanbul ignore next */
-Upload.install = function (Vue) {
-  Vue.component(Upload.name, Upload)
+UploadMinio.install = function (Vue) {
+  Vue.component(UploadMinio.name, UploadMinio)
 }
 
-export default Upload
+export default UploadMinio

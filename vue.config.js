@@ -82,7 +82,7 @@ module.exports = {
   // 它支持webPack-dev-server的所有选项
 
   devServer: {
-    port: 8091, // 端口号
+    port: 8094, // 端口号
     host: 'localhost',
     https: false, // https:{type:Boolean}
     open: true, // 配置自动启动浏览器
@@ -94,7 +94,16 @@ module.exports = {
           pathRewrite: {
             '^/minio/api': ''
           }
-      }
+      },
+      '/runtimeservice/minio/api': {
+        target: 'http://localhost:58866',
+        // target: 'http://10.191.4.58:8096/maintain/datacenterservice',
+        changeOrigin: true,
+        pathRewrite: {
+          '^/runtimeservice/minio/api': '/api/IIMes/Infra'
+          // '^/datacenterservice': ''
+        }
+      },
     }
   }
 }
