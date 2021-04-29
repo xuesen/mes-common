@@ -1,6 +1,6 @@
 {
-  "name": "mes-common",
-  "version": "1.7.8",
+  "name": "@itc-mes/common",
+  "version": "1.0.0",
   "description": "mes组件和工具库",
   "author": "itc070024",
   "scripts": {
