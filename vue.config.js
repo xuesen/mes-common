@@ -96,12 +96,20 @@ module.exports = {
           }
       },
       '/runtimeservice/minio/api': {
-        target: 'http://localhost:58866',
+        target: 'http://localhost:58855',
         // target: 'http://10.191.4.58:8096/maintain/datacenterservice',
         changeOrigin: true,
         pathRewrite: {
           '^/runtimeservice/minio/api': '/api/IIMes/Infra'
           // '^/datacenterservice': ''
+        }
+      },
+      '/runtimeservice/miniourl': {
+        // target: 'http://10.190.5.83:58855',
+        target: 'http://10.190.50.61:9001',
+        changeOrigin: true,
+        pathRewrite: {
+          '^/runtimeservice/miniourl': ''
         }
       },
     }

@@ -96,14 +96,17 @@ import Codes from './example-code/index.js'
 import Icons from '../packages/icons/index.js'
 import * as Minio from 'minio'
 import stream from 'stream'
-
+import axios from 'axios'
 export default {
   name: 'App',
   components: {
   },
-  mounted () {
+  async mounted () {
     const requireAll = requireContext => requireContext.keys().map(requireContext)
     requireAll(Codes)
+
+    let result = await this.$axios('./runtimeservice/minio/api/MinIO/PutUrl?bucket=iimes&objectName=bar.btw', 'get', {})
+    console.log(result.data)
   },
   data () {
     return {

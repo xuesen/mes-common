@@ -11,9 +11,11 @@
   },
   "main": "lib/ii-element-ui.common.js",
   "dependencies": {
+    "axios": "^0.21.1",
     "core-js": "^3.6.4",
     "element-ui": "^2.8.2-itcmodify-0.8",
     "js-base64": "^2.5.2",
+    "lodash": "^4.17.21",
     "minio": "^7.0.18",
     "moment": "^2.24.0",
     "register-service-worker": "^1.7.1",
