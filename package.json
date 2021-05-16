@@ -1,8 +1,8 @@
 {
-  "name": "@itc-mes/common",
+  "name": "@xts-mes/common",
   "version": "1.0.0",
-  "description": "mes组件和工具库",
-  "author": "itc070024",
+  "description": "elementui-common组件",
+  "author": "xuesen",
   "scripts": {
     "serve": "vue-cli-service serve --mode development",
     "build": "vue-cli-service build --mode production",
