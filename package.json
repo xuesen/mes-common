@@ -13,7 +13,7 @@
   "dependencies": {
     "axios": "^0.21.1",
     "core-js": "^3.6.4",
-    "element-ui": "^2.8.2-itcmodify-0.8",
+    "element-ui": "^2.15.1",
     "js-base64": "^2.5.2",
     "lodash": "^4.17.21",
     "minio": "^7.0.18",
