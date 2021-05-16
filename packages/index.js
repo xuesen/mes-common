@@ -5,7 +5,10 @@ import Messenger from './cross-iframe-messenger/index.js'
 import MessagesBase from './i18n/index.js'
 import CodeView from './code-view/index.js'
 import IiCascader from './cascader/index.js'
+import IiImportExcel from './import-excel/index.js'
 import IiKeyboardInput from './keyboard-input/index.js'
+import IiMaintainPage from './maintain-page/index.js'
+import IiMaintainTable from './maintain-table/index.js'
 import IiQuickInput from './quick-input/index.js'
 import IiRadioGroup from './radio-group/index.js'
 import IiSingleSelect from './single-select/index.js'
@@ -167,7 +170,10 @@ const install = function (Vue, opts = {}) {
   Vue.use(MsgBox, {locale: opts.locale})
   Vue.use(Messenger)
   Vue.use(IiCascader)
+  Vue.use(IiImportExcel)
   Vue.use(IiKeyboardInput)
+  Vue.use(IiMaintainPage)
+  Vue.use(IiMaintainTable)
   Vue.use(IiQuickInput)
   Vue.use(IiRadioGroup)
   Vue.use(IiSingleSelect)
